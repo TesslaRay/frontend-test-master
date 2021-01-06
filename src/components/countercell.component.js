@@ -8,12 +8,18 @@ import RemoveIcon from '@material-ui/icons/Remove';
 
 const useStyles = makeStyles((theme) => ({
   box: {
-    // backgroundColor: '#abaeb3',
-    // position: 'absolute',
-    // width: '411px',
     height: '67px',
-    alignItems: 'center',
     display: 'flex',
+    alignItems: 'center',
+  },
+  block: {
+    height: '53px',
+    '&:hover': {
+      backgroundColor: 'rgba(255, 149, 0, 0.5)',
+    },
+    borderRadius: '6px',
+    display: 'flex',
+    alignItems: 'center',
   },
   text: {
     position: 'absolute',
@@ -36,17 +42,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const ElementCount = ({element}) => {
+export const CounterCell = ({element}) => {
   const classes = useStyles();
 
   return (
     <Container className={classes.box}>
-      <div className={classes.text}>{element.text}</div>
-      <div className={classes.rigthside}>
-        <RemoveIcon color="primary" />
-        <span className={classes.number}>{element.number}</span>
-        <AddIcon color="primary" />
-      </div>
+      <Container className={classes.block}>
+        <div className={classes.text}>{element.text}</div>
+        <div className={classes.rigthside}>
+          <RemoveIcon color="primary" />
+          <span className={classes.number}>{element.number}</span>
+          <AddIcon color="primary" />
+        </div>
+      </Container>
     </Container>
   );
 };

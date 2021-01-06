@@ -5,6 +5,7 @@ import {makeStyles} from '@material-ui/core/styles';
 
 import SvgIcon from '@material-ui/core/SvgIcon';
 import {ReactComponent as Logo} from '../images/logo-test.svg';
+
 import {Box, Button} from '@material-ui/core';
 
 // TODO: margin: 8px where??
@@ -63,7 +64,6 @@ const Welcome = () => {
           className={classes.button}
           component={Link}
           to="/main"
-          // onClick={() => console.log('ir a main')}
         >
           Get started
         </Button>

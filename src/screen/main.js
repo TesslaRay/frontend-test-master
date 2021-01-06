@@ -3,12 +3,16 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 
 import {SearchBar} from '../components/searchbar.component';
-import {ElementCount} from '../components/elementcount.component';
+import {CounterCell} from '../components/countercell.component';
 import {AddButton} from '../components/addbutton.component';
+import {ActivityIndicator} from '../components/activityindicator.component';
 
 import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    textAlign: 'center',
+  },
   bottom: {
     position: 'fixed',
     bottom: theme.spacing(2),
@@ -40,12 +44,13 @@ const element4 = {
 const Main = () => {
   const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       <SearchBar />
-      <ElementCount element={element1} />
-      <ElementCount element={element2} />
-      <ElementCount element={element3} />
-      <ElementCount element={element4} />
+      {/* <CounterCell element={element1} />
+      <CounterCell element={element2} />
+      <CounterCell element={element3} />
+      <CounterCell element={element4} /> */}
+      <ActivityIndicator />
       <div className={classes.bottom}>
         <Divider />
         <AddButton />
