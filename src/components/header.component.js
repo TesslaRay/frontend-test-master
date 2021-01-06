@@ -35,15 +35,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Header = () => {
+export const Header = ({items}) => {
   const classes = useStyles();
+
+  let times = Object.values(items).reduce((t, {count}) => t + count, 0);
 
   return (
     <Container className={classes.box}>
       <Container className={classes.block}>
-        <div className={classes.items}>4 items</div>
-        <div className={classes.times}>17 times</div>
-        <ReplayIcon className={classes.icon} />
+        <div className={classes.items}>{items.length} items</div>
+        <div className={classes.times}>{times} times</div>
+        <ReplayIcon
+          className={classes.icon}
+          onClick={() => window.location.reload()}
+        />
       </Container>
     </Container>
   );

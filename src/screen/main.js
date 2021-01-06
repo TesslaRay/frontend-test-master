@@ -1,15 +1,18 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {makeStyles} from '@material-ui/core/styles';
 
 import {SearchBar} from '../components/searchbar.component';
 import {Header} from '../components/header.component';
-import {CounterCell} from '../components/countercell.component';
+import {ItemList} from '../components/itemlist.component';
 import {AddButton} from '../components/addbutton.component';
 import {ActivityIndicator} from '../components/activityindicator.component';
 
+import getCounters from './actions';
+
 import Divider from '@material-ui/core/Divider';
 
+// TODO: align center !!
 const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: '30vh',
@@ -30,34 +33,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const element1 = {
-  text: 'Cups of Coffe',
-  number: 5,
-};
-
-const element2 = {
-  text: 'Records played',
-  number: 10,
-};
-
-const element3 = {
-  text:
-    'Number of times I’ve forgotten my mother’s name because I was high on Frugelés.',
-  number: 2,
-};
-
-const element4 = {
-  text: 'Apples eaten',
-  number: 0,
-};
-
 const Main = () => {
+  const [response, setResponse] = useState({items: []});
+
+  useEffect(() => {
+    getCounters().then((items) => setResponse({items: items}));
+  }, []);
+
+  const {items} = response;
+  console.log(items);
   const classes = useStyles();
 
   const mainState = 'has-content';
 
   const mainStateRender = () => {
     switch (mainState) {
+      default:
+        return;
       case 'no-content':
         return (
           <div>
@@ -73,11 +65,8 @@ const Main = () => {
       case 'has-content':
         return (
           <div>
-            <Header />
-            <CounterCell element={element1} />
-            {/* <CounterCell element={element2} />
-            <CounterCell element={element3} />
-            <CounterCell element={element4} /> */}
+            <Header items={items} />
+            <ItemList items={items} />
           </div>
         );
       case 'error':

@@ -1,18 +1,18 @@
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const express = require("express");
-const morgan = require("morgan");
-const counters = require("./counters");
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const express = require('express');
+const morgan = require('morgan');
+const counters = require('./counters');
 
 const PORT = 3001;
 const app = express();
 
-app.use(morgan("combined"));
+app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
-const BASE_URL = "/api/v1/counter";
+const BASE_URL = '/api/v1/counter';
 
 /**
  * [json] GET /api/v1/counter
@@ -36,8 +36,12 @@ app.get(BASE_URL, function (_, res) {
  * ```
  */
 app.post(BASE_URL, function (req, res) {
-  if (req.body.title === undefined || req.body.title === null || req.body.title === '') {
-    return res.status(400).send({ message: "'title' is required" });
+  if (
+    req.body.title === undefined ||
+    req.body.title === null ||
+    req.body.title === ''
+  ) {
+    return res.status(400).send({message: "'title' is required"});
   }
 
   res.json(counters.create(req.body.title));
@@ -57,19 +61,20 @@ app.delete(BASE_URL, function (req, res) {
 
 /**
  * [json] POST { id: 'qwer' } /api/v1/counter/inc
- * 
+ *
  * Response:
  * ```
  *  {id: 'qwer', title: 'bob',   count: 1}
  * ```
  */
 app.post(`${BASE_URL}/inc`, function (req, res) {
+  console.log('[api test]', req.body);
   res.json(counters.inc(req.body.id));
 });
 
 /**
  * [json] POST {id: 'zxcv'} /api/v1/counter/dec
- * 
+ *
  * Response:
  * ```
  *  {id: 'zxcv', title: 'steve', count: 2}
@@ -85,11 +90,11 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
  * ----------
  * Easter egg
  * ----------
- * 
+ *
  * fetch('/api/v1/counters', { method: 'get' })
  *    .then(res => res.json())
  *    .then(res => console.log(res))
- * 
+ *
  * fetch('/api/v1/counter', {
  *    method: 'post',
  *    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },

@@ -7,10 +7,6 @@ import Main from './screen/main';
 
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 
-// You don't have to use `fetch` btw, use whatever you want
-const getCounters = () =>
-  fetch('/api/v1/counter', {method: 'get'}).then((res) => res.json());
-
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -24,10 +20,6 @@ const theme = createMuiTheme({
 });
 
 const App = () => {
-  React.useEffect(() => {
-    getCounters().then(console.log, console.error);
-  }, []);
-
   return (
     // TODO: its Router the bette way to do this??
     <Router>
