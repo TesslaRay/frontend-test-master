@@ -9,6 +9,8 @@
   "author": "Cornershop",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
     "body-parser": "^1.16.1",
     "concurrently": "^5.1.0",
     "cors": "^2.8.5",
