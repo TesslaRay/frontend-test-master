@@ -5,9 +5,11 @@ import {makeStyles} from '@material-ui/core/styles';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import {ReactComponent as Activity} from '../images/activity-indicator.svg';
 
-// TODO: fix vertical position of ActivityIndicator
+// TODO: fix vertical position
+// TODO: fix horizontal position
 const useStyles = makeStyles(() => ({
   image: {
+    textAlign: 'center',
     marginTop: '200px',
     width: '114px',
     height: '114px',
