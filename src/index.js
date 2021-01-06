@@ -5,6 +5,8 @@ import {SearchBar} from './components/searchbar.component';
 import {AddButton} from './components/addbutton.component';
 import {ElementCount} from './components/elementcount.component';
 
+import Welcome from './screen/welcome';
+
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 
 import Divider from '@material-ui/core/Divider';
@@ -53,14 +55,15 @@ const App = () => {
 
   return (
     <div>
-      <SearchBar />
+      {/* <SearchBar /> */}
       {/* <AddButton /> */}
-      <ElementCount element={element1} />
-      <ElementCount element={element2} />
-      <ElementCount element={element3} />
-      <ElementCount element={element4} />
-      <Divider />
-      <AddButton />
+      {/* <ElementCount element={element1} /> */}
+      {/* <ElementCount element={element2} /> */}
+      {/* <ElementCount element={element3} /> */}
+      {/* <ElementCount element={element4} /> */}
+      {/* <Divider /> */}
+      {/* <AddButton /> */}
+      <Welcome />
     </div>
   );
 };
