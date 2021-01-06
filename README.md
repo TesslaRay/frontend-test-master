@@ -119,3 +119,10 @@ Good luck! 🎉
 We hope your submission is… to die for.
 
 ![Coffin dance](coffin.gif)
+
+## Diary of work from Cristian Valdivia
+
+I'm so excited to do this test. On my first day, I study the test and try to think about what approach to use.
+
+At first and after talking about it with friends I try to use TDD, but since I never took the test at React, this option was eliminated.  After that and with my mind more relaxed, I start with the more basic components as I noticed that some components like the search bar and the add button appear in almost all views. After that I program the  welcome screen and main screen. Tomorrow I will finish almost all the views and start with the functionality.
+
