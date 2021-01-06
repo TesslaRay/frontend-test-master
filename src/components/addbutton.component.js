@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     color: 'white',
     borderRadius: '8px',
+    float: 'right',
   },
 }));
 

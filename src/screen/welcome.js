@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import {makeStyles} from '@material-ui/core/styles';
 
 import SvgIcon from '@material-ui/core/SvgIcon';
@@ -6,9 +8,11 @@ import {ReactComponent as Logo} from '../images/logo-test.svg';
 import {Box, Button} from '@material-ui/core';
 
 // TODO: margin: 8px where??
+// TODO: have a backgroundColor ??
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#F9F9F9',
+    // backgroundColor: '#F9F9F9',
+    backgroundColor: 'white',
     textAlign: 'center',
     height: '100vh',
   },
@@ -53,7 +57,14 @@ const Welcome = () => {
         counted.
       </p>
       <Box mt={8} className={classes.bottom}>
-        <Button variant="contained" color="primary" className={classes.button}>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          component={Link}
+          to="/main"
+          // onClick={() => console.log('ir a main')}
+        >
           Get started
         </Button>
       </Box>

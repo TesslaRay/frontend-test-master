@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
       border: `2px solid ${theme.palette.primary.main}`,
     },
     marginRight: theme.spacing(2),
+    marginTop: '2vh',
     marginLeft: 0,
     width: '100%',
     color: '#888B90',
