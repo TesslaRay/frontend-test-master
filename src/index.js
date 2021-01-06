@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import SearchBar from './components/search-bar/searchbar.component';
+import SearchBar from './components/searchbar.component';
+import AddButton from './components/addbutton.component';
+
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 
 // You don't have to use `fetch` btw, use whatever you want
@@ -27,6 +29,7 @@ const App = () => {
   return (
     <div>
       <SearchBar />
+      <AddButton />
     </div>
   );
 };
