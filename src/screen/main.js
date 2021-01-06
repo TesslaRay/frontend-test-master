@@ -8,7 +8,7 @@ import {ItemList} from '../components/itemlist.component';
 import {AddButton} from '../components/addbutton.component';
 import {ActivityIndicator} from '../components/activityindicator.component';
 
-import getCounters from './actions';
+import {getCounters} from './actions';
 
 import Divider from '@material-ui/core/Divider';
 
@@ -41,7 +41,6 @@ const Main = () => {
   }, []);
 
   const {items} = response;
-  console.log(items);
   const classes = useStyles();
 
   const mainState = 'has-content';
