@@ -40,7 +40,6 @@ const Main = () => {
     getCounters().then((items) => setResponse({items: items}));
   }, []);
 
-  const {items} = response;
   const classes = useStyles();
 
   const mainState = 'has-content';
@@ -64,8 +63,8 @@ const Main = () => {
       case 'has-content':
         return (
           <div>
-            <Header items={items} />
-            <ItemList items={items} />
+            <Header items={response.items} />
+            <ItemList items={response.items} />
           </div>
         );
       case 'error':

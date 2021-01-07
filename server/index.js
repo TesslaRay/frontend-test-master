@@ -68,7 +68,6 @@ app.delete(BASE_URL, function (req, res) {
  * ```
  */
 app.post(`${BASE_URL}/inc`, function (req, res) {
-  console.log('[api test]', req.body);
   res.json(counters.inc(req.body.id));
 });
 
