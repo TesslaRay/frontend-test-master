@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import Welcome from './screen/welcome';
 import Main from './screen/main';
+import CreateItem from './screen/createitem';
 
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 
@@ -11,6 +12,9 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#FF9500',
+    },
+    secondary: {
+      main: '#FFFFFF',
     },
   },
   typography: {
@@ -30,6 +34,9 @@ const App = () => {
           </Route>
           <Route path="/main">
             <Main />
+          </Route>
+          <Route path="/create">
+            <CreateItem />
           </Route>
         </Switch>
       </div>
