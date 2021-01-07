@@ -36,17 +36,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Header = ({items}) => {
+export const Header = () => {
   const classes = useStyles();
-  const count_shop = useSelector((state) => state.count_shop);
+  const count_reducer = useSelector((state) => state.count_reducer);
 
-  let times = Object.values(items).reduce((t, {count}) => t + count, 0);
+  let times = 0;
+  for (let i = 0; i < count_reducer.counts[0].length; i++) {
+    times = times + count_reducer.counts[0][i].count;
+  }
 
   return (
     <Container className={classes.box}>
       <Container className={classes.block}>
-        {/* <div className={classes.items}>{items.length} items</div> */}
-        <div className={classes.items}>{count_shop.count} items</div>
+        <div className={classes.items}>{count_reducer.counts.length} items</div>
 
         <div className={classes.times}>{times} times</div>
         <ReplayIcon

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 
 import {makeStyles} from '@material-ui/core/styles';
 
@@ -7,10 +7,10 @@ import {Header} from '../components/header.component';
 import {ItemList} from '../components/itemlist.component';
 import {AddButton} from '../components/addbutton.component';
 import {ActivityIndicator} from '../components/activityindicator.component';
-
-import {getCounters} from './actions';
-
 import Divider from '@material-ui/core/Divider';
+
+import {useDispatch, useSelector} from 'react-redux';
+import fetchCount from '../redux/actions/main';
 
 // TODO: align center !!
 const useStyles = makeStyles((theme) => ({
@@ -34,49 +34,46 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Main = () => {
-  const [response, setResponse] = useState({items: []});
+  const dispatch = useDispatch();
+  const count_reducer = useSelector((state) => state.count_reducer);
 
   useEffect(() => {
-    getCounters().then((items) => setResponse({items: items}));
+    dispatch(fetchCount());
   }, []);
 
   const classes = useStyles();
 
-  const mainState = 'has-content';
-
   const mainStateRender = () => {
-    switch (mainState) {
-      default:
-        return;
-      case 'no-content':
-        return (
+    return (
+      <React.Fragment>
+        {count_reducer.loading && <ActivityIndicator />}
+        {!count_reducer.loading &&
+          count_reducer.counts.length < 1 &&
+          count_reducer.error === '' && (
+            <div>
+              <p className={classes.title}>No counters yet</p>
+              <p className={classes.subtitle}>
+                “When I started counting my blessings, my whole life turned
+                around.” —Willie Nelson
+              </p>
+            </div>
+          )}
+        {count_reducer.counts.length >= 1 && (
           <div>
-            <p className={classes.title}>No counters yet</p>
-            <p className={classes.subtitle}>
-              “When I started counting my blessings, my whole life turned
-              around.” —Willie Nelson
-            </p>
+            <Header />
+            <ItemList />
           </div>
-        );
-      case 'loading':
-        return <ActivityIndicator />;
-      case 'has-content':
-        return (
-          <div>
-            <Header items={response.items} />
-            <ItemList items={response.items} />
-          </div>
-        );
-      case 'error':
-        return (
+        )}
+        {count_reducer.error !== '' && (
           <div>
             <p className={classes.title}>Couldn’t load the counters</p>
             <p className={classes.subtitle}>
               The Internet connection appears to be offline.
             </p>
           </div>
-        );
-    }
+        )}
+      </React.Fragment>
+    );
   };
 
   return (

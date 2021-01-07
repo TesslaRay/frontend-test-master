@@ -27,7 +27,6 @@ const theme = createMuiTheme({
 });
 
 const App = () => {
-  console.log(store.getState());
   return (
     // TODO: its Router the bette way to do this??
     <Router>
