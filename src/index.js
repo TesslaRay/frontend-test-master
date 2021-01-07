@@ -8,6 +8,9 @@ import CreateItem from './screen/createitem';
 
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 
+import {Provider} from 'react-redux';
+import store from './redux/store';
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -24,6 +27,7 @@ const theme = createMuiTheme({
 });
 
 const App = () => {
+  console.log(store.getState());
   return (
     // TODO: its Router the bette way to do this??
     <Router>
@@ -46,7 +50,9 @@ const App = () => {
 
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </MuiThemeProvider>,
 
   document.querySelector('#root'),

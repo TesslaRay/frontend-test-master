@@ -4,6 +4,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import ReplayIcon from '@material-ui/icons/Replay';
+import {useSelector} from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -37,13 +38,16 @@ const useStyles = makeStyles((theme) => ({
 
 export const Header = ({items}) => {
   const classes = useStyles();
+  const count_shop = useSelector((state) => state.count_shop);
 
   let times = Object.values(items).reduce((t, {count}) => t + count, 0);
 
   return (
     <Container className={classes.box}>
       <Container className={classes.block}>
-        <div className={classes.items}>{items.length} items</div>
+        {/* <div className={classes.items}>{items.length} items</div> */}
+        <div className={classes.items}>{count_shop.count} items</div>
+
         <div className={classes.times}>{times} times</div>
         <ReplayIcon
           className={classes.icon}
