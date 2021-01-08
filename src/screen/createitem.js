@@ -12,9 +12,9 @@ import {Container} from '@material-ui/core';
 
 import InputBase from '@material-ui/core/InputBase';
 
-import {addCounter} from './actions';
-
 import {ActivityIndicator} from '../components/activityindicator.component';
+import {useDispatch, useSelector} from 'react-redux';
+import addCounter from '../redux/actions/addCounterActions';
 
 const useStyles = makeStyles((theme) => ({
   dimmer: {
@@ -75,11 +75,16 @@ const useStyles = makeStyles((theme) => ({
     color: '#888B90',
     fontWeight: 400,
   },
+  loader: {
+    textAlign: 'center',
+  },
 }));
 
 const CreateItem = () => {
+  const dispatch = useDispatch();
+  const count_reducer = useSelector((state) => state.count_reducer);
+
   const [counter, setCounter] = useState();
-  const [loading, setLoading] = useState(false);
 
   const classes = useStyles();
 
@@ -88,11 +93,10 @@ const CreateItem = () => {
   };
 
   const saveItem = (counter) => {
-    setLoading(true);
-    addCounter(counter);
-    setTimeout(() => setLoading(false), 1000);
+    dispatch(addCounter(counter));
   };
 
+  // TODO: eliminate -
   return (
     <div className={classes.dimmer}>
       -
@@ -135,7 +139,15 @@ const CreateItem = () => {
           Give it a name. Creative block? See <u>examples</u>.
         </Typography>
       </div>
-      {loading === true ? <ActivityIndicator /> : <p></p>}
+      {count_reducer.loadingAddCounter === true ? (
+        <div className={classes.loader}>
+          <ActivityIndicator />
+        </div>
+      ) : (
+        <p></p>
+      )}
+      {/* TODO: create error with z backdrop */}
+      {count_reducer.errorAddCounter !== '' && <p>Error</p>}
     </div>
   );
 };

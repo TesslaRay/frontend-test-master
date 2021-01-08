@@ -16,11 +16,19 @@ import {
   DECREMENT_VALUE_SUCCESS,
 } from '../actions/decrementValueActions';
 
+import {
+  ADD_COUNTER_ERROR,
+  ADD_COUNTER_REQUEST,
+  ADD_COUNTER_SUCCESS,
+} from '../actions/addCounterActions';
+
 const initialState = {
   loading: false,
   loadingChangeValue: false,
+  loadingAddCounter: false,
   error: '',
   errorChangeValue: '',
+  errorAddCounter: '',
   counts: [],
 };
 
@@ -38,12 +46,13 @@ const count_reducer = (state = initialState, action) => {
         counts: action.payload[0] == '' ? [] : action.payload,
       };
     }
-    case FETCH_COUNT_ERROR:
+    case FETCH_COUNT_ERROR: {
       return {
         ...state,
         counts: [],
         error: action.payload,
       };
+    }
 
     case INCREMENT_VALUE_REQUEST: {
       return {
@@ -98,6 +107,28 @@ const count_reducer = (state = initialState, action) => {
       return {
         ...state,
         errorChangeValue: action.payload,
+      };
+    }
+
+    case ADD_COUNTER_REQUEST: {
+      return {
+        ...state,
+        loadingAddCounter: true,
+      };
+    }
+
+    case ADD_COUNTER_SUCCESS: {
+      return {
+        ...state,
+        loadingAddCounter: false,
+      };
+    }
+
+    case ADD_COUNTER_ERROR: {
+      return {
+        ...state,
+        loadingAddCounter: false,
+        errorAddCounter: action.payload,
       };
     }
 

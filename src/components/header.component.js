@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 
 import ReplayIcon from '@material-ui/icons/Replay';
 import {useSelector} from 'react-redux';
+import {Typography} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -30,9 +31,16 @@ const useStyles = makeStyles((theme) => ({
     color: '#888B90',
     fontSize: '12px',
   },
+  refreshing: {
+    color: theme.palette.primary.main,
+  },
   icon: {
     transform: 'scaleX(-1)',
     color: '#4A4A4A',
+  },
+  iconRefresh: {
+    transform: 'scaleX(-1)',
+    color: theme.palette.primary.main,
   },
 }));
 
@@ -48,13 +56,19 @@ export const Header = () => {
   return (
     <Container className={classes.box}>
       <Container className={classes.block}>
-        <div className={classes.items}>{count_reducer.counts.length} items</div>
-
+        <div className={classes.items}>
+          {count_reducer.counts[0].length} items
+        </div>
         <div className={classes.times}>{times} times</div>
-        <ReplayIcon
-          className={classes.icon}
-          onClick={() => window.location.reload()}
-        />
+        {!count_reducer.loadingChangeValue && (
+          <ReplayIcon className={classes.icon} />
+        )}
+        {count_reducer.loadingChangeValue && (
+          <React.Fragment>
+            <ReplayIcon className={classes.iconRefresh} />
+            <Typography color="primary">Refreshing…</Typography>
+          </React.Fragment>
+        )}
       </Container>
     </Container>
   );

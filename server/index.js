@@ -36,6 +36,7 @@ app.get(BASE_URL, function (_, res) {
  * ```
  */
 app.post(BASE_URL, function (req, res) {
+  console.log(req.body);
   if (
     req.body.title === undefined ||
     req.body.title === null ||
