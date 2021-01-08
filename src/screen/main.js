@@ -10,10 +10,13 @@ import {ActivityIndicator} from '../components/activityindicator.component';
 import Divider from '@material-ui/core/Divider';
 
 import {useDispatch, useSelector} from 'react-redux';
-import fetchCount from '../redux/actions/main';
+import fetchCount from '../redux/actions/fetchCountActions';
 
 // TODO: align center !!
 const useStyles = makeStyles((theme) => ({
+  root: {
+    textAlign: 'center',
+  },
   title: {
     marginTop: '30vh',
     fontFamily: theme.typography.fontFamily,

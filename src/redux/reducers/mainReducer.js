@@ -1,13 +1,23 @@
+import update from 'immutability-helper';
+
 import {
   FETCH_COUNT_ERROR,
   FETCH_COUNT_REQUEST,
   FETCH_COUNT_SUCCESS,
-} from '../actions/main';
+} from '../actions/fetchCountActions';
+
+import {
+  INCREMENT_VALUE_ERROR,
+  INCREMENT_VALUE_REQUEST,
+  INCREMENT_VALUE_SUCCESS,
+} from '../actions/incrementValueActions';
 
 const initialState = {
   loading: false,
-  counts: [],
+  loadingChangeValue: false,
   error: '',
+  errorChangeValue: '',
+  counts: [],
 };
 
 const count_reducer = (state = initialState, action) => {
@@ -15,22 +25,50 @@ const count_reducer = (state = initialState, action) => {
     case FETCH_COUNT_REQUEST:
       return {
         ...state,
-        counts: [],
         loading: true,
       };
     case FETCH_COUNT_SUCCESS: {
       return {
+        ...state,
         loading: false,
         counts: action.payload[0] == '' ? [] : action.payload,
-        error: '',
       };
     }
     case FETCH_COUNT_ERROR:
       return {
-        loading: false,
+        ...state,
         counts: [],
         error: action.payload,
       };
+
+    case INCREMENT_VALUE_REQUEST: {
+      return {
+        ...state,
+        loadingChangeValue: true,
+      };
+    }
+
+    case INCREMENT_VALUE_SUCCESS: {
+      state.counts[0].map((objet) => {
+        if (objet.id === action.payload[0].id) {
+          objet.count = action.payload[0].count;
+        }
+      });
+
+      return {
+        ...state,
+        loadingChangeValue: false,
+        counts: state.counts,
+      };
+    }
+
+    case INCREMENT_VALUE_ERROR: {
+      return {
+        ...state,
+        errorChangeValue: action.payload,
+      };
+    }
+
     default:
       return state;
   }

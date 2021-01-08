@@ -12,7 +12,7 @@ export const fetchCountRequest = () => {
   };
 };
 
-export const fetchCountSucces = (response) => {
+export const fetchCountSuccess = (response) => {
   return {
     type: FETCH_COUNT_SUCCESS,
     payload: response,
@@ -32,9 +32,9 @@ const fetchCount = () => {
     axios
       .get('http://localhost:3001/api/v1/counter')
       .then((response) => {
-        dispatch(fetchCountSucces([response.data]));
+        dispatch(fetchCountSuccess([response.data]));
       })
-      .catch((error) => dispatch(fetchCountError('No internet')));
+      .catch((error) => dispatch(fetchCountError('No connection')));
   };
 };
 

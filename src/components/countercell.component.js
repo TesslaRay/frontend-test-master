@@ -10,6 +10,7 @@ import {incrementValueCounter, decrementValueCounter} from '../screen/actions';
 import {useDispatch} from 'react-redux';
 import {increment_count_action} from '../redux/actions/countActions';
 import {decrement_count_action} from '../redux/actions/countActions';
+import incrementValue from '../redux/actions/incrementValueActions';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -57,14 +58,11 @@ export const CounterCell = ({item}) => {
     decrementValueCounter(item);
     item.count--;
     setElement({element: item});
-    dispatch(decrement_count_action(1));
+    // dispatch(decrement_count_action(1));
   }
 
   function onIncrement() {
-    incrementValueCounter(item);
-    item.count++;
-    setElement({element: item});
-    dispatch(increment_count_action(1));
+    dispatch(incrementValue(item));
   }
 
   return (
