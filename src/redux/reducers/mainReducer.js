@@ -1,5 +1,3 @@
-import update from 'immutability-helper';
-
 import {
   FETCH_COUNT_ERROR,
   FETCH_COUNT_REQUEST,
@@ -11,6 +9,12 @@ import {
   INCREMENT_VALUE_REQUEST,
   INCREMENT_VALUE_SUCCESS,
 } from '../actions/incrementValueActions';
+
+import {
+  DECREMENT_VALUE_ERROR,
+  DECREMENT_VALUE_REQUEST,
+  DECREMENT_VALUE_SUCCESS,
+} from '../actions/decrementValueActions';
 
 const initialState = {
   loading: false,
@@ -63,6 +67,34 @@ const count_reducer = (state = initialState, action) => {
     }
 
     case INCREMENT_VALUE_ERROR: {
+      return {
+        ...state,
+        errorChangeValue: action.payload,
+      };
+    }
+
+    case DECREMENT_VALUE_REQUEST: {
+      return {
+        ...state,
+        loadingChangeValue: true,
+      };
+    }
+
+    case DECREMENT_VALUE_SUCCESS: {
+      state.counts[0].map((objet) => {
+        if (objet.id === action.payload[0].id) {
+          objet.count = action.payload[0].count;
+        }
+      });
+
+      return {
+        ...state,
+        loadingChangeValue: false,
+        counts: state.counts,
+      };
+    }
+
+    case DECREMENT_VALUE_ERROR: {
       return {
         ...state,
         errorChangeValue: action.payload,

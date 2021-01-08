@@ -6,11 +6,10 @@ import Container from '@material-ui/core/Container';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
-import {incrementValueCounter, decrementValueCounter} from '../screen/actions';
-import {useDispatch} from 'react-redux';
-import {increment_count_action} from '../redux/actions/countActions';
-import {decrement_count_action} from '../redux/actions/countActions';
+import {useDispatch, useSelector} from 'react-redux';
+
 import incrementValue from '../redux/actions/incrementValueActions';
+import decrementValue from '../redux/actions/decrementValueActions';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -52,13 +51,8 @@ export const CounterCell = ({item}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const [element, setElement] = useState(item);
-
   function onDecrement() {
-    decrementValueCounter(item);
-    item.count--;
-    setElement({element: item});
-    // dispatch(decrement_count_action(1));
+    dispatch(decrementValue(item));
   }
 
   function onIncrement() {
