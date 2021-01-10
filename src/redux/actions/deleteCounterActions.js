@@ -1,4 +1,5 @@
 import axios from 'axios';
+import url from '../../config/env.js';
 
 export const DELETE_COUNTER_REQUEST = 'DELETE_COUNTER_REQUEST';
 export const DELETE_COUNTER_SUCCESS = 'DELETE_COUNTER_SUCCESS';
@@ -30,7 +31,7 @@ const deleteCounter = (id) => {
   return (dispatch) => {
     dispatch(deleteCounterRequest());
     axios
-      .delete('http://localhost:3001/api/v1/counter/', {
+      .delete(`${url}/api/v1/counter/`, {
         data: {id: id},
         headers: {Authorization: '***'},
       })

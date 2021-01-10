@@ -1,7 +1,7 @@
 import {SEARCH_COUNTER, SEARCH_ACTIVATE} from '../actions/searchCounterActions';
 
 const initialState = {
-  searchCounter: '',
+  searchCounter: {},
   searchState: false,
 };
 

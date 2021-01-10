@@ -1,4 +1,5 @@
 import axios from 'axios';
+import url from '../../config/env.js';
 
 export const INCREMENT_VALUE_REQUEST = 'INCREMENT_VALUE_REQUEST';
 export const INCREMENT_VALUE_SUCCESS = 'INCREMENT_VALUE_SUCCES';
@@ -30,7 +31,7 @@ const incrementValue = (item) => {
   return (dispatch) => {
     dispatch(incrementValueRequest());
     axios
-      .post('http://localhost:3001/api/v1/counter/inc', {id: item.id})
+      .post(`${url}/api/v1/counter/inc`, {id: item.id})
       .then((response) => dispatch(incrementValueSuccess([response.data])))
       .catch((error) => dispatch(incrementValueError('No connection')));
   };

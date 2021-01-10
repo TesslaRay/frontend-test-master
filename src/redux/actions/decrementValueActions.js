@@ -1,4 +1,5 @@
 import axios from 'axios';
+import url from '../../config/env.js';
 
 export const DECREMENT_VALUE_REQUEST = 'DECREMENT_VALUE_REQUEST';
 export const DECREMENT_VALUE_SUCCESS = 'DECREMENT_VALUE_SUCCESS';
@@ -30,7 +31,7 @@ const decrementValue = (item) => {
   return (dispatch) => {
     dispatch(decrementValueRequest());
     axios
-      .post('http://localhost:3001/api/v1/counter/dec', {id: item.id})
+      .post(`${url}/api/v1/counter/dec`, {id: item.id})
       .then((response) => dispatch(decrementValueSuccess([response.data])))
       .catch((error) => dispatch(decrementValueError('No connection')));
   };

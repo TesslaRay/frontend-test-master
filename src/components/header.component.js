@@ -48,10 +48,21 @@ export const Header = () => {
   const classes = useStyles();
   const count_reducer = useSelector((state) => state.count_reducer);
   const ui_reducer = useSelector((state) => state.ui_reducer);
+  const search_reducer = useSelector((state) => state.search_reducer);
+
+  let searchFilter = count_reducer.counts[0].filter((count) =>
+    count.title.includes(search_reducer.searchCounter),
+  );
 
   let times = 0;
-  for (let i = 0; i < count_reducer.counts[0].length; i++) {
-    times = times + count_reducer.counts[0][i].count;
+  if (search_reducer.searchState && search_reducer.searchCounter.length > 0) {
+    for (let i = 0; i < searchFilter.length; i++) {
+      times = times + searchFilter[i].count;
+    }
+  } else {
+    for (let i = 0; i < count_reducer.counts[0].length; i++) {
+      times = times + count_reducer.counts[0][i].count;
+    }
   }
 
   return (
@@ -60,7 +71,11 @@ export const Header = () => {
         {ui_reducer.itemSelected.length < 1 && (
           <React.Fragment>
             <div className={classes.items}>
-              {count_reducer.counts[0].length} items
+              {search_reducer.searchState &&
+              search_reducer.searchCounter.length > 0
+                ? searchFilter.length
+                : count_reducer.counts[0].length}
+              &nbsp; items
             </div>
             <div className={classes.times}>{times} times</div>
             {!count_reducer.loadingChangeValue && (

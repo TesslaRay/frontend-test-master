@@ -1,4 +1,5 @@
 import axios from 'axios';
+import url from '../../config/env.js';
 
 export const FETCH_COUNT_REQUEST = 'FETCH_COUNT_REQUEST';
 export const FETCH_COUNT_SUCCESS = 'FETCH_COUNT_SUCCESS';
@@ -30,7 +31,7 @@ const fetchCount = () => {
   return (dispatch) => {
     dispatch(fetchCountRequest());
     axios
-      .get('http://localhost:3001/api/v1/counter')
+      .get(`${url}/api/v1/counter`)
       .then((response) => {
         dispatch(fetchCountSuccess([response.data]));
       })

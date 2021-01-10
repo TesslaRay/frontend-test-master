@@ -12,4 +12,10 @@ init i:
 run r:
 	@echo "[frontend-test-master] Start frontend... \n"
 	@npm start
+
+deploy d:
+	@echo "[frontend-test-master] Deploy on GCP... \n"
+	@npm run deploy
+
+
 	

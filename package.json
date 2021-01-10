@@ -4,7 +4,9 @@
   "description": "Frontend test for cornershop app",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"node server/index.js\""
+    "start": "concurrently \"react-scripts start\" \"node server/index.js\"",
+    "deploy": "npm run build && gcloud app deploy app.yaml",
+    "build": "react-scripts build"
   },
   "author": "Cornershop",
   "license": "ISC",

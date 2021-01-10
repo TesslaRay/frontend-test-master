@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
   expand: {
     height: '80vh',
   },
+  dimmer: {
+    opacity: 0.2,
+  },
   bottom: {
     position: 'fixed',
     bottom: theme.spacing(2),
@@ -48,6 +51,7 @@ const Main = () => {
   const dispatch = useDispatch();
   const count_reducer = useSelector((state) => state.count_reducer);
   const ui_reducer = useSelector((state) => state.ui_reducer);
+  const search_reducer = useSelector((state) => state.search_reducer);
 
   useEffect(() => {
     dispatch(fetchCount());
@@ -71,7 +75,7 @@ const Main = () => {
             </div>
           )}
         {count_reducer.counts.length >= 1 && (
-          <div>
+          <div className={search_reducer.searchState ? classes.dimmer : null}>
             <Header />
             <ItemList />
           </div>
