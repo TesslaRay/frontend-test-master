@@ -5,7 +5,7 @@ import {
 } from '../actions/searchCounterActions';
 
 const initialState = {
-  searchCounter: {},
+  searchCounter: '',
   searchState: false,
 };
 

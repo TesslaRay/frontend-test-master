@@ -139,6 +139,7 @@ const CreateItem = () => {
         <Typography variant="h6">Name</Typography>
         <div className={classes.search}>
           <InputBase
+            fullWidth={true}
             placeholder="Cups of coffee"
             classes={{
               input: classes.inputInput,

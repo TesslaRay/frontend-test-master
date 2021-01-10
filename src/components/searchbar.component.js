@@ -66,6 +66,7 @@ export const SearchBar = () => {
           <SearchIcon />
         </div>
         <InputBase
+          fullWidth={true}
           placeholder="Search Counters"
           classes={{
             input: classes.inputInput,
