@@ -6,11 +6,15 @@ import {SearchBar} from '../components/searchbar.component';
 import {Header} from '../components/header.component';
 import {ItemList} from '../components/itemlist.component';
 import {AddButton} from '../components/addbutton.component';
+import {DeleteButton} from '../components/deletebutton.component';
+
 import {ActivityIndicator} from '../components/activityindicator.component';
 import Divider from '@material-ui/core/Divider';
 
 import {useDispatch, useSelector} from 'react-redux';
 import fetchCount from '../redux/actions/fetchCountActions';
+import {ShareButton} from '../components/sharebutton.component';
+import {unselectItem} from '../redux/actions/selectItemActions';
 
 // TODO: align center !!
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '13px',
     color: '#4A4A4A',
   },
+  expand: {
+    height: '80vh',
+  },
   bottom: {
     position: 'fixed',
     bottom: theme.spacing(2),
@@ -39,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 const Main = () => {
   const dispatch = useDispatch();
   const count_reducer = useSelector((state) => state.count_reducer);
+  const ui_reducer = useSelector((state) => state.ui_reducer);
 
   useEffect(() => {
     dispatch(fetchCount());
@@ -80,11 +88,24 @@ const Main = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      onClick={() => {
+        if (ui_reducer.itemSelected.length > 0) {
+          dispatch(unselectItem());
+        }
+      }}
+    >
       <SearchBar />
-      {mainStateRender()}
+      <div className={classes.expand}>{mainStateRender()}</div>
       <div className={classes.bottom}>
         <Divider />
+        {ui_reducer.itemSelected.length > 0 && (
+          <React.Fragment>
+            <DeleteButton />
+            <ShareButton />
+          </React.Fragment>
+        )}
         <AddButton />
       </div>
     </div>

@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 export const Header = () => {
   const classes = useStyles();
   const count_reducer = useSelector((state) => state.count_reducer);
+  const ui_reducer = useSelector((state) => state.ui_reducer);
 
   let times = 0;
   for (let i = 0; i < count_reducer.counts[0].length; i++) {
@@ -56,17 +57,35 @@ export const Header = () => {
   return (
     <Container className={classes.box}>
       <Container className={classes.block}>
-        <div className={classes.items}>
-          {count_reducer.counts[0].length} items
-        </div>
-        <div className={classes.times}>{times} times</div>
-        {!count_reducer.loadingChangeValue && (
-          <ReplayIcon className={classes.icon} />
-        )}
-        {count_reducer.loadingChangeValue && (
+        {ui_reducer.itemSelected.length < 1 && (
           <React.Fragment>
-            <ReplayIcon className={classes.iconRefresh} />
-            <Typography color="primary">Refreshing…</Typography>
+            <div className={classes.items}>
+              {count_reducer.counts[0].length} items
+            </div>
+            <div className={classes.times}>{times} times</div>
+            {!count_reducer.loadingChangeValue && (
+              <ReplayIcon className={classes.icon} />
+            )}
+            {count_reducer.loadingChangeValue && (
+              <React.Fragment>
+                <ReplayIcon className={classes.iconRefresh} />
+                <Typography color="primary">Refreshing…</Typography>
+              </React.Fragment>
+            )}
+            {count_reducer.loadingChangeValue && (
+              <React.Fragment>
+                <ReplayIcon className={classes.iconRefresh} />
+                <Typography color="primary">Refreshing…</Typography>
+              </React.Fragment>
+            )}
+          </React.Fragment>
+        )}
+        {ui_reducer.itemSelected.length > 0 && (
+          <React.Fragment>
+            <React.Fragment>
+              <Typography color="primary">1 selected</Typography>
+              <ReplayIcon className={classes.icon} />
+            </React.Fragment>
           </React.Fragment>
         )}
       </Container>

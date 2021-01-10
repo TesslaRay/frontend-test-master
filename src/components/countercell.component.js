@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 
 import Container from '@material-ui/core/Container';
@@ -10,6 +10,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import incrementValue from '../redux/actions/incrementValueActions';
 import decrementValue from '../redux/actions/decrementValueActions';
+import selectItem from '../redux/actions/selectItemActions';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -60,7 +61,10 @@ export const CounterCell = ({item}) => {
   }
 
   return (
-    <Container className={classes.box}>
+    <Container
+      className={classes.box}
+      onClick={() => dispatch(selectItem(item))}
+    >
       <Container className={classes.block}>
         <div className={classes.text}>{item.title}</div>
         <div className={classes.rigthside}>

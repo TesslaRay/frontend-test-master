@@ -21,6 +21,11 @@ import {
   ADD_COUNTER_REQUEST,
   ADD_COUNTER_SUCCESS,
 } from '../actions/addCounterActions';
+import {
+  DELETE_COUNTER_ERROR,
+  DELETE_COUNTER_REQUEST,
+  DELETE_COUNTER_SUCCESS,
+} from '../actions/deleteCounterActions';
 
 const initialState = {
   loading: false,
@@ -29,6 +34,7 @@ const initialState = {
   error: '',
   errorChangeValue: '',
   errorAddCounter: '',
+  errorDeleteCounter: '',
   counts: [],
 };
 
@@ -129,6 +135,31 @@ const count_reducer = (state = initialState, action) => {
         ...state,
         loadingAddCounter: false,
         errorAddCounter: action.payload,
+      };
+    }
+
+    case DELETE_COUNTER_REQUEST: {
+      return {
+        ...state,
+      };
+    }
+
+    case DELETE_COUNTER_SUCCESS: {
+      const newState = [];
+      newState[0] = state.counts[0].filter(
+        (item) => item.id !== action.payload[0],
+      );
+
+      return {
+        ...state,
+        counts: newState,
+      };
+    }
+
+    case DELETE_COUNTER_ERROR: {
+      return {
+        ...state,
+        errorDeleteCounter: action.payload,
       };
     }
 
