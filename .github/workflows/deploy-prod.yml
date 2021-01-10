@@ -1,0 +1,21 @@
+name: Deploy production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-testing:
+    runs-on: ubuntu-latest
+    name: Deploy PROD
+    steps:
+      - name: Retrieving the repo
+        uses: actions/checkout@v1
+      - name: Run deployment
+        uses: actions-hub/gcloud@master
+        env:
+          APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+          PROJECT_ID: ${{secrets.GCLOUD_PROJECT_ID}}
+        with:
+          args: app deploy app.yaml
