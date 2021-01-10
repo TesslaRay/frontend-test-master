@@ -1,4 +1,8 @@
-import {SEARCH_COUNTER, SEARCH_ACTIVATE} from '../actions/searchCounterActions';
+import {
+  SEARCH_COUNTER,
+  SEARCH_ACTIVATE,
+  SEARCH_DESACTIVATE,
+} from '../actions/searchCounterActions';
 
 const initialState = {
   searchCounter: {},
@@ -20,6 +24,12 @@ const search_reducer = (state = initialState, action) => {
       return {
         ...state,
         searchState: true,
+      };
+
+    case SEARCH_DESACTIVATE:
+      return {
+        ...state,
+        searchState: false,
       };
   }
 };

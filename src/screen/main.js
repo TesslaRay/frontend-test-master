@@ -15,7 +15,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import fetchCount from '../redux/actions/fetchCountActions';
 import {ShareButton} from '../components/sharebutton.component';
 import {unselectItem} from '../redux/actions/selectItemActions';
-import {activateSearch} from '../redux/actions/searchCounterActions';
+import {
+  activateSearch,
+  desactivateSearch,
+} from '../redux/actions/searchCounterActions';
 
 // TODO: align center !!
 const useStyles = makeStyles((theme) => ({
@@ -102,11 +105,19 @@ const Main = () => {
             if (ui_reducer.itemSelected.length > 0) {
               dispatch(unselectItem());
             }
+            if (search_reducer.searchState) {
+              dispatch(desactivateSearch());
+            }
           }}
         >
           <div className={classes.expand}>{mainStateRender()}</div>
         </div>
-        <div className={classes.bottom}>
+        <div
+          className={classes.bottom}
+          onClick={() => {
+            dispatch(desactivateSearch());
+          }}
+        >
           <Divider />
           {ui_reducer.itemSelected.length > 0 && (
             <React.Fragment>
