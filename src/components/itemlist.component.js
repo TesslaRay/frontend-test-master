@@ -5,7 +5,6 @@ import {useSelector} from 'react-redux';
 
 import {CounterCell} from './countercell.component';
 import {Typography} from '@material-ui/core';
-import {Header} from './header.component';
 
 const useStyles = makeStyles((theme) => ({
   noresults: {

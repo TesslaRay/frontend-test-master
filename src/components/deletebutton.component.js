@@ -12,12 +12,13 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {unselectItem} from '../redux/actions/selectItemActions';
+import {danger} from '../utils/colors';
 
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     backgroundColor: '#FFFFFF',
-    color: '#FF3B30',
+    color: danger,
     borderRadius: '8px',
     border: '1px solid rgba(0, 0, 0, 0.05)',
     boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.1)',

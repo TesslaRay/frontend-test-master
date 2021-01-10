@@ -22,6 +22,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {unselectItem} from '../redux/actions/selectItemActions';
+import {primary} from '../utils/colors';
 
 const useStyles = makeStyles((theme) => ({
   dimmer: {
@@ -69,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     border: '1px solid rgba(0, 0, 0, 0.15)',
     '&:hover': {
-      border: `2px solid ${theme.palette.primary.main}`,
+      border: `2px solid ${primary}`,
     },
     boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.05)',
   },

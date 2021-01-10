@@ -15,11 +15,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import fetchCount from '../redux/actions/fetchCountActions';
 import {ShareButton} from '../components/sharebutton.component';
 import {unselectItem} from '../redux/actions/selectItemActions';
-import {
-  activateSearch,
-  desactivateSearch,
-} from '../redux/actions/searchCounterActions';
-import {dimmer} from '../components/dimmer.component';
+import {desactivateSearch} from '../redux/actions/searchCounterActions';
 
 // TODO: align center !!
 const useStyles = makeStyles((theme) => ({

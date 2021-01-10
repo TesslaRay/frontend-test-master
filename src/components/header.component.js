@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import ReplayIcon from '@material-ui/icons/Replay';
 import {useSelector} from 'react-redux';
 import {Typography} from '@material-ui/core';
+import {primary} from '../utils/colors';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '12px',
   },
   refreshing: {
-    color: theme.palette.primary.main,
+    color: primary,
   },
   icon: {
     transform: 'scaleX(-1)',
@@ -40,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   iconRefresh: {
     transform: 'scaleX(-1)',
-    color: theme.palette.primary.main,
+    color: primary,
   },
 }));
 

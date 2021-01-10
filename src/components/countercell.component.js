@@ -11,6 +11,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import incrementValue from '../redux/actions/incrementValueActions';
 import decrementValue from '../redux/actions/decrementValueActions';
 import {selectItem} from '../redux/actions/selectItemActions';
+import {primary} from '../utils/colors';
 
 const useStyles = makeStyles((theme) => ({
   box: {

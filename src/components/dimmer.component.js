@@ -20,8 +20,6 @@ export const Dimmer = () => {
     count.title.includes(search_reducer.searchCounter),
   );
 
-  console.log(searchFilter);
-
   return search_reducer.searchState && searchFilter.length > 0 ? (
     <div className={classes.dimmerOn}>
       <Header />

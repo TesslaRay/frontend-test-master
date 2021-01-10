@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import InputBase from '@material-ui/core/InputBase';
@@ -8,6 +8,7 @@ import {
   activateSearch,
   searchCounter,
 } from '../redux/actions/searchCounterActions';
+import {primary} from '../utils/colors';
 
 // TODO: font-family
 const useStyles = makeStyles((theme) => ({
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '8px',
     backgroundColor: 'white',
     '&:hover': {
-      border: `2px solid ${theme.palette.primary.main}`,
+      border: `2px solid ${primary}`,
     },
     marginRight: theme.spacing(2),
     marginTop: '2vh',

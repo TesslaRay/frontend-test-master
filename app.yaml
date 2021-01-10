@@ -9,4 +9,4 @@ handlers:
     static_dir: build
 
 env_variables:
-  URL: 'https://api-test-cornershop-dot-cristian-valdivia.ue.r.appspot.com'
+  REACT_APP_URL: 'https://api-test-cornershop-dot-cristian-valdivia.ue.r.appspot.com'
