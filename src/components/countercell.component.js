@@ -20,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
   },
   block: {
     height: '53px',
+    borderRadius: '6px',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  selected: {
+    height: '53px',
     '&:hover': {
       backgroundColor: 'rgba(255, 149, 0, 0.5)',
     },
@@ -51,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
 export const CounterCell = ({item}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const ui_reducer = useSelector((state) => state.ui_reducer);
 
   function onDecrement() {
     dispatch(decrementValue(item));
@@ -63,9 +70,15 @@ export const CounterCell = ({item}) => {
   return (
     <Container
       className={classes.box}
-      onClick={() => dispatch(selectItem(item))}
+      onClick={() => {
+        dispatch(selectItem(item));
+      }}
     >
-      <Container className={classes.block}>
+      <Container
+        className={
+          ui_reducer.itemSelected.length > 0 ? classes.selected : classes.box
+        }
+      >
         <div className={classes.text}>{item.title}</div>
         <div className={classes.rigthside}>
           <RemoveIcon color="primary" onClick={() => onDecrement()} />

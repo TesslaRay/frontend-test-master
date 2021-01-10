@@ -16,6 +16,13 @@ import {ActivityIndicator} from '../components/activityindicator.component';
 import {useDispatch, useSelector} from 'react-redux';
 import addCounter from '../redux/actions/addCounterActions';
 
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import {unselectItem} from '../redux/actions/selectItemActions';
+
 const useStyles = makeStyles((theme) => ({
   dimmer: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
@@ -83,6 +90,7 @@ const useStyles = makeStyles((theme) => ({
 const CreateItem = () => {
   const dispatch = useDispatch();
   const count_reducer = useSelector((state) => state.count_reducer);
+  const ui_reducer = useSelector((state) => state.ui_reducer);
 
   const [counter, setCounter] = useState();
 
@@ -95,6 +103,10 @@ const CreateItem = () => {
   const saveItem = (counter) => {
     dispatch(addCounter(counter));
   };
+
+  const handleClickOpen = () => {};
+
+  const handleClose = () => {};
 
   // TODO: eliminate -
   return (
@@ -146,8 +158,24 @@ const CreateItem = () => {
       ) : (
         <p></p>
       )}
-      {/* TODO: create error with z backdrop */}
-      {count_reducer.errorAddCounter !== '' && <p>Error</p>}
+      <Dialog
+        open={count_reducer.errorAddCounter !== ''}
+        // onClose={handleClose}
+      >
+        <DialogTitle id="alert-dialog-title">
+          Couldn’t create counter
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Couldn’t create counter
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => {}} color="primary">
+            Dismiss
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

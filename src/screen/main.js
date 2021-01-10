@@ -88,16 +88,17 @@ const Main = () => {
   };
 
   return (
-    <div
-      className={classes.root}
-      onClick={() => {
-        if (ui_reducer.itemSelected.length > 0) {
-          dispatch(unselectItem());
-        }
-      }}
-    >
-      <SearchBar />
-      <div className={classes.expand}>{mainStateRender()}</div>
+    <div className={classes.root}>
+      <div
+        onClick={() => {
+          if (ui_reducer.itemSelected.length > 0) {
+            dispatch(unselectItem());
+          }
+        }}
+      >
+        <SearchBar />
+        <div className={classes.expand}>{mainStateRender()}</div>
+      </div>
       <div className={classes.bottom}>
         <Divider />
         {ui_reducer.itemSelected.length > 0 && (
@@ -106,6 +107,7 @@ const Main = () => {
             <ShareButton />
           </React.Fragment>
         )}
+
         <AddButton />
       </div>
     </div>
