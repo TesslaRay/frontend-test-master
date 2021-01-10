@@ -1,5 +1,9 @@
 node_modules
+/.vscode
 
 # production
 /build
 app.yaml
+
+env-dev.json
+env-prod.json

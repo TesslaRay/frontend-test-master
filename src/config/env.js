@@ -1,10 +1,8 @@
-const local = false;
-
-const urlDev = 'http://localhost:3001';
-
-const urlProd =
-  'https://api-test-cornershop-dot-cristian-valdivia.ue.r.appspot.com';
-
-let url = local ? urlDev : urlProd;
+const url = process.env.REACT_APP_URL;
+if (url === undefined) {
+  console.log(
+    '[frontend-test-master][Error] No URL specified in the env variables',
+  );
+}
 
 export default url;

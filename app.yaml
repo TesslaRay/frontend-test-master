@@ -7,3 +7,6 @@ handlers:
     upload: build/index.html
   - url: /
     static_dir: build
+
+env_variables:
+  URL: 'https://api-test-cornershop-dot-cristian-valdivia.ue.r.appspot.com'

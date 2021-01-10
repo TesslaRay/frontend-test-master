@@ -3,8 +3,6 @@ import React, {useEffect} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 
 import {SearchBar} from '../components/searchbar.component';
-import {Header} from '../components/header.component';
-import {ItemList} from '../components/itemlist.component';
 import {Dimmer} from '../components/dimmer.component';
 
 import {AddButton} from '../components/addbutton.component';
