@@ -15,6 +15,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import fetchCount from '../redux/actions/fetchCountActions';
 import {ShareButton} from '../components/sharebutton.component';
 import {unselectItem} from '../redux/actions/selectItemActions';
+import {activateSearch} from '../redux/actions/searchCounterActions';
 
 // TODO: align center !!
 const useStyles = makeStyles((theme) => ({
@@ -88,29 +89,32 @@ const Main = () => {
   };
 
   return (
-    <div className={classes.root}>
-      <div
-        onClick={() => {
-          if (ui_reducer.itemSelected.length > 0) {
-            dispatch(unselectItem());
-          }
-        }}
-      >
-        <SearchBar />
-        <div className={classes.expand}>{mainStateRender()}</div>
-      </div>
-      <div className={classes.bottom}>
-        <Divider />
-        {ui_reducer.itemSelected.length > 0 && (
-          <React.Fragment>
-            <DeleteButton />
-            <ShareButton />
-          </React.Fragment>
-        )}
+    <React.Fragment>
+      <SearchBar />
 
-        <AddButton />
+      <div className={classes.root}>
+        <div
+          onClick={() => {
+            if (ui_reducer.itemSelected.length > 0) {
+              dispatch(unselectItem());
+            }
+          }}
+        >
+          <div className={classes.expand}>{mainStateRender()}</div>
+        </div>
+        <div className={classes.bottom}>
+          <Divider />
+          {ui_reducer.itemSelected.length > 0 && (
+            <React.Fragment>
+              <DeleteButton />
+              <ShareButton />
+            </React.Fragment>
+          )}
+
+          <AddButton />
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

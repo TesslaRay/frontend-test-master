@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import {useDispatch} from 'react-redux';
+import {
+  activateSearch,
+  searchCounter,
+} from '../redux/actions/searchCounterActions';
 
 // TODO: font-family
 const useStyles = makeStyles((theme) => ({
@@ -45,10 +50,18 @@ const useStyles = makeStyles((theme) => ({
 
 export const SearchBar = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const onChange = (event) => {
+    dispatch(searchCounter(event.target.value));
+  };
 
   return (
     <Box>
-      <div className={classes.search}>
+      <div
+        className={classes.search}
+        onClick={() => dispatch(activateSearch())}
+      >
         <div className={classes.searchIcon}>
           <SearchIcon />
         </div>
@@ -57,6 +70,7 @@ export const SearchBar = () => {
           classes={{
             input: classes.inputInput,
           }}
+          onChange={onChange}
           inputProps={{'aria-label': 'search'}}
         />
       </div>

@@ -1,6 +1,5 @@
 export const SELECT_ITEM = 'SELECT_ITEM';
 export const UNSELECT_ITEM = 'UNSELECT_ITEM';
-
 // --end-actions-types--
 
 // ACTIONS
@@ -16,5 +15,3 @@ export const unselectItem = () => {
     type: UNSELECT_ITEM,
   };
 };
-
-export default selectItem;
