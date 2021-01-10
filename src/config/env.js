@@ -1,4 +1,4 @@
-const local = true;
+const local = false;
 
 const urlDev = 'http://localhost:3001';
 
