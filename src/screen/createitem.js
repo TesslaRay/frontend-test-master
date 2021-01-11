@@ -22,13 +22,23 @@ import {AddError} from '../components/adderror.component';
 const useStyles = makeStyles((theme) => ({
   dimmer: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    height: '70px',
+    height: '100vh',
   },
   root: {
-    // marginTop: '20hv',
-    borderRadius: '16px 16px 0px 0px',
-    height: '70px',
     backgroundColor: 'white',
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      height: '97vh',
+      borderRadius: '16px 16px 0px 0px',
+      marginTop: '0px',
+    },
+    marginTop: '15vh',
+    borderRadius: '16px 16px 16px 16px',
+    width: '485px',
+    height: '612px',
+    margin: 'auto',
+  },
+  header: {
     display: 'flex',
     alignItems: 'center',
   },
@@ -103,58 +113,60 @@ const CreateItem = () => {
     <div className={classes.dimmer}>
       <br></br>
       <Container className={classes.root}>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          aria-label="menu"
-          component={Link}
-          to="/main"
-        >
-          <AddCircleIcon />
-        </IconButton>
-        <Typography variant="h5" className={classes.title}>
-          Create Counter
-        </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.saveButton}
-          onClick={() => saveItem(counter)}
-        >
-          Save
-        </Button>
+        <div className={classes.header}>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            aria-label="menu"
+            component={Link}
+            to="/main"
+          >
+            <AddCircleIcon />
+          </IconButton>
+          <Typography variant="h5" className={classes.title}>
+            Create Counter
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.saveButton}
+            onClick={() => saveItem(counter)}
+          >
+            Save
+          </Button>
+        </div>
+        <Divider className={classes.separator} />
+        <div className={classes.body}>
+          <Typography variant="h6">Name</Typography>
+          <div className={classes.search}>
+            <InputBase
+              fullWidth={true}
+              placeholder="Cups of coffee"
+              classes={{
+                input: classes.inputInput,
+              }}
+              inputProps={{'aria-label': 'search'}}
+              onChange={onChange}
+            />
+          </div>
+          <Typography className={classes.subtitle}>
+            Give it a name. Creative block? See&nbsp;
+            <Link to="/example">
+              <u>examples.</u>
+            </Link>
+          </Typography>
+        </div>
+        {/* Loading */}
+        {count_reducer.loadingAddCounter === true ? (
+          <div className={classes.loader}>
+            <ActivityIndicator />
+          </div>
+        ) : (
+          <p></p>
+        )}
+        {/* Error */}
+        {count_reducer.errorAddCounter !== '' && <AddError />}
       </Container>
-      <Divider className={classes.separator} />
-      <div className={classes.body}>
-        <Typography variant="h6">Name</Typography>
-        <div className={classes.search}>
-          <InputBase
-            fullWidth={true}
-            placeholder="Cups of coffee"
-            classes={{
-              input: classes.inputInput,
-            }}
-            inputProps={{'aria-label': 'search'}}
-            onChange={onChange}
-          />
-        </div>
-        <Typography className={classes.subtitle}>
-          Give it a name. Creative block? See&nbsp;
-          <Link to="/example">
-            <u>examples.</u>
-          </Link>
-        </Typography>
-      </div>
-      {/* Loading */}
-      {count_reducer.loadingAddCounter === true ? (
-        <div className={classes.loader}>
-          <ActivityIndicator />
-        </div>
-      ) : (
-        <p></p>
-      )}
-      {/* Error */}
-      {count_reducer.errorAddCounter !== '' && <AddError />}
     </div>
   );
 };

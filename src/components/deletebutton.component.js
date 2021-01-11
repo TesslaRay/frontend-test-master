@@ -10,7 +10,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import {unselectItem} from '../redux/actions/select-item.actions';
 import {danger, title, subtitle, primary} from '../utils/colors';
 import {Typography} from '@material-ui/core';
 import {boxShadow} from '../utils/constans';

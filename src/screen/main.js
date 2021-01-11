@@ -18,7 +18,7 @@ import {unselectItem} from '../redux/actions/select-item.actions';
 import {desactivateSearch} from '../redux/actions/search-counter.actions';
 import {DeletetionError} from '../components/deletetionerror.component';
 
-import {container} from '../utils/constans';
+import {Box} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
       width: '90%',
     },
     width: '570px',
+  },
+  body: {
+    height: '82vh',
   },
 }));
 
@@ -117,23 +120,36 @@ const Main = () => {
 
   return (
     <React.Fragment>
-      <div className={classes.root}>
-        <div className={classes.searchBarContainer}>
-          <SearchBar />
-        </div>
-
+      <div
+        className={classes.root}
+        onClick={() => {
+          if (search_reducer.searchState) {
+            dispatch(desactivateSearch());
+          }
+        }}
+      >
         <div
+          className={classes.searchBarContainer}
           onClick={() => {
             if (ui_reducer.itemSelected.length > 0) {
               dispatch(unselectItem());
             }
-            if (search_reducer.searchState) {
-              dispatch(desactivateSearch());
+          }}
+        >
+          <SearchBar />
+        </div>
+
+        <Box
+          className={classes.body}
+          onClick={() => {
+            if (ui_reducer.itemSelected.length > 0) {
+              dispatch(unselectItem());
             }
           }}
         >
           {mainStateRender()}
-        </div>
+        </Box>
+
         <div
           className={classes.bottom}
           onClick={() => {

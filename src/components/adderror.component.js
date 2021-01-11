@@ -7,7 +7,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import {danger, title, subtitle, primary} from '../utils/colors';
 import {Button, makeStyles, Typography} from '@material-ui/core';
 import {boxShadow} from '../utils/constans';
-import {useDispatch} from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -58,10 +57,6 @@ export const AddError = () => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(true);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
   const handleClose = () => {
     setOpen(false);
