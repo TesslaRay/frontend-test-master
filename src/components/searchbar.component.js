@@ -10,7 +10,6 @@ import {
 } from '../redux/actions/search-counter.actions';
 import {primary} from '../utils/colors';
 
-// TODO: font-family
 const useStyles = makeStyles((theme) => ({
   search: {
     position: 'relative',

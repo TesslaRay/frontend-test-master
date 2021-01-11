@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     height: '70px',
   },
   root: {
-    // marginTop: '20hv',
     borderRadius: '16px 16px 0px 0px',
     height: '70px',
     backgroundColor: 'white',

@@ -99,14 +99,9 @@ const CreateItem = () => {
     dispatch(addCounter(counter));
   };
 
-  const handleClickOpen = () => {};
-
-  const handleClose = () => {};
-
-  // TODO: eliminate -
   return (
     <div className={classes.dimmer}>
-      -
+      <br></br>
       <Container className={classes.root}>
         <IconButton
           edge="start"

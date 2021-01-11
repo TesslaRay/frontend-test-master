@@ -20,11 +20,9 @@ import {DeletetionError} from '../components/deletetionerror.component';
 
 import {container} from '../utils/constans';
 
-// TODO: align center !!
 const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: 'center',
-    alignItems: 'center',
     [theme.breakpoints.down('xs')]: {
       width: '100%',
       height: '100%',
@@ -46,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bottom: {
     position: 'fixed',
-    bottom: theme.spacing(2),
+    bottom: theme.spacing(1),
     width: '100%',
   },
   searchBarContainer: {
@@ -142,7 +140,7 @@ const Main = () => {
             dispatch(desactivateSearch());
           }}
         >
-          <Divider />
+          <Divider className={classes.divider} />
 
           <div className={classes.containerButtons}>
             {ui_reducer.itemSelected.length > 0 && (
