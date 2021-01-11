@@ -91,7 +91,6 @@ const useStyles = makeStyles((theme) => ({
 const CreateItem = () => {
   const dispatch = useDispatch();
   const count_reducer = useSelector((state) => state.count_reducer);
-  const ui_reducer = useSelector((state) => state.ui_reducer);
 
   const [counter, setCounter] = useState();
 
@@ -150,7 +149,10 @@ const CreateItem = () => {
           />
         </div>
         <Typography className={classes.subtitle}>
-          Give it a name. Creative block? See <u>examples</u>.
+          Give it a name. Creative block? See&nbsp;
+          <Link to="/example">
+            <u>examples.</u>
+          </Link>
         </Typography>
       </div>
       {count_reducer.loadingAddCounter === true ? (
@@ -160,10 +162,7 @@ const CreateItem = () => {
       ) : (
         <p></p>
       )}
-      <Dialog
-        open={count_reducer.errorAddCounter !== ''}
-        // onClose={handleClose}
-      >
+      <Dialog open={count_reducer.errorAddCounter !== ''}>
         <DialogTitle id="alert-dialog-title">
           Couldn’t create counter
         </DialogTitle>
