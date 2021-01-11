@@ -2,7 +2,7 @@ VERSION := $$(cat package.json | grep version | sed 's/"/ /g' | awk {'print $$3'
 
 PROD := env-prod.json
 DEV := env-dev.json
-ENV := $(PROD)
+ENV := $(DEV)
 
 REACT_APP_URL := $$(cat $(ENV) | grep REACT_APP_URL | sed 's/"/ /g' | awk {'print $$3'})
 

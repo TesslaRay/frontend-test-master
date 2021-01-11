@@ -9,10 +9,11 @@ import deleteCounter from '../redux/actions/delete-counter.actions';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {unselectItem} from '../redux/actions/select-item.actions';
-import {danger} from '../utils/colors';
+import {danger, title, subtitle, primary} from '../utils/colors';
+import {Typography} from '@material-ui/core';
+import {boxShadow} from '../utils/constans';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -23,6 +24,32 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid rgba(0, 0, 0, 0.05)',
     boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.1)',
     float: 'left',
+  },
+  title: {
+    color: title,
+    fontSize: '18px',
+    fontWeight: '600',
+    alignText: 'center',
+  },
+  subtitle: {
+    color: subtitle,
+    alignText: 'center',
+  },
+  dialogActions: {
+    justifyContent: 'center',
+  },
+  cancel: {
+    backgroundColor: primary,
+    color: 'white',
+    fontWeight: '600',
+    boxShadow: boxShadow.boxShadow,
+    textTransform: 'none',
+  },
+  delete: {
+    color: danger,
+    fontWeight: '600',
+    boxShadow: boxShadow.boxShadow,
+    textTransform: 'none',
   },
 }));
 
@@ -52,25 +79,24 @@ export const DeleteButton = () => {
       </Button>
 
       {/* Dialog */}
-      <Dialog
-        open={open}
-        // onClose={handleClose}
-      >
-        <DialogTitle id="alert-dialog-title">
-          {ui_reducer.itemSelected.length > 0
-            ? `Delete the “${ui_reducer.itemSelected[0].title}” counter?`
-            : 0}
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>
+          <Typography
+            align="center"
+            className={classes.title}
+          >{`Delete the “${ui_reducer.itemSelected[0].title}” counter?`}</Typography>
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
+          <Typography className={classes.subtitle} align="center">
             This cannot be undone.
-          </DialogContentText>
+          </Typography>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
+        <DialogActions className={classes.dialogActions}>
+          <Button onClick={handleClose} className={classes.cancel}>
             Cancel
           </Button>
           <Button
+            className={classes.delete}
             onClick={() => {
               dispatch(deleteCounter(ui_reducer.itemSelected[0].id));
               handleClose();
