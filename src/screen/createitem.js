@@ -16,13 +16,8 @@ import {ActivityIndicator} from '../components/activityindicator.component';
 import {useDispatch, useSelector} from 'react-redux';
 import addCounter from '../redux/actions/add-counter.actions';
 
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import {unselectItem} from '../redux/actions/select-item.actions';
 import {primary} from '../utils/colors';
+import {AddError} from '../components/adderror.component';
 
 const useStyles = makeStyles((theme) => ({
   dimmer: {
@@ -155,6 +150,7 @@ const CreateItem = () => {
           </Link>
         </Typography>
       </div>
+      {/* Loading */}
       {count_reducer.loadingAddCounter === true ? (
         <div className={classes.loader}>
           <ActivityIndicator />
@@ -162,21 +158,8 @@ const CreateItem = () => {
       ) : (
         <p></p>
       )}
-      <Dialog open={count_reducer.errorAddCounter !== ''}>
-        <DialogTitle id="alert-dialog-title">
-          Couldn’t create counter
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Couldn’t create counter
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => {}} color="primary">
-            Dismiss
-          </Button>
-        </DialogActions>
-      </Dialog>
+      {/* Error */}
+      {count_reducer.errorAddCounter !== '' && <AddError />}
     </div>
   );
 };

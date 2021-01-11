@@ -8,7 +8,6 @@ import {danger, title, subtitle, primary} from '../utils/colors';
 import {Button, makeStyles, Typography} from '@material-ui/core';
 import {boxShadow} from '../utils/constans';
 import {useDispatch} from 'react-redux';
-import deleteCounter from '../redux/actions/delete-counter.actions';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -47,16 +46,16 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'none',
   },
   dismiss: {
-    color: primary,
+    color: 'white',
+    backgroundColor: primary,
     fontWeight: '600',
     boxShadow: boxShadow.boxShadow,
     textTransform: 'none',
   },
 }));
 
-export const DeletetionError = () => {
+export const AddError = () => {
   const classes = useStyles();
-  const dispatch = useDispatch();
 
   const [open, setOpen] = React.useState(true);
 
@@ -71,10 +70,9 @@ export const DeletetionError = () => {
   return (
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>
-        <Typography
-          align="center"
-          className={classes.title}
-        >{`Couldn’t delete `}</Typography>
+        <Typography align="center" className={classes.title}>
+          Couldn’t create counter
+        </Typography>
       </DialogTitle>
       <DialogContent>
         <Typography className={classes.subtitle} align="center">
@@ -82,9 +80,6 @@ export const DeletetionError = () => {
         </Typography>
       </DialogContent>
       <DialogActions className={classes.dialogActions}>
-        <Button onClick={dispatch(deleteCounter())} className={classes.cancel}>
-          Retry
-        </Button>
         <Button
           className={classes.dismiss}
           onClick={() => {

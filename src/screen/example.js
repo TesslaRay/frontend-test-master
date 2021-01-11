@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Divider from '@material-ui/core/Divider';
-import {Chip, Container} from '@material-ui/core';
+import {Container} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import {boxShadow} from '../utils/constans';
 import {ExampleList} from '../components/example.component';
@@ -102,10 +102,6 @@ const useStyles = makeStyles((theme) => ({
 
 const ExampleScreen = () => {
   const classes = useStyles();
-
-  const handleClick = (example) => {
-    console.info(`You clicked the Chip ${example.name}`);
-  };
 
   const drinks = [
     {
