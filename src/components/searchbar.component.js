@@ -7,7 +7,7 @@ import {useDispatch} from 'react-redux';
 import {
   activateSearch,
   searchCounter,
-} from '../redux/actions/searchCounterActions';
+} from '../redux/actions/search-counter.actions';
 import {primary} from '../utils/colors';
 
 // TODO: font-family

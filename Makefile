@@ -4,7 +4,7 @@ PROD := env-prod.json
 DEV := env-dev.json
 ENV := $(PROD)
 
-URL := $$(cat $(ENV) | grep URL | sed 's/"/ /g' | awk {'print $$3'})
+REACT_APP_URL := $$(cat $(ENV) | grep REACT_APP_URL | sed 's/"/ /g' | awk {'print $$3'})
 
 SVC=frontend-test-master
 
@@ -17,7 +17,7 @@ init i:
 
 run r:
 	@echo "[frontend-test-master] Start frontend with $(ENV)... \n"
-	@REACT_APP_URL="$(URL)" npm start
+	@REACT_APP_URL="$(REACT_APP_URL)" npm start
 
 deploy d:
 	@echo "[frontend-test-master] Deploy on GCP... \n"

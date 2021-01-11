@@ -4,14 +4,14 @@ import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {useDispatch, useSelector} from 'react-redux';
-import deleteCounter from '../redux/actions/deleteCounterActions';
+import deleteCounter from '../redux/actions/delete-counter.actions';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import {unselectItem} from '../redux/actions/selectItemActions';
+import {unselectItem} from '../redux/actions/select-item.actions';
 import {danger} from '../utils/colors';
 
 const useStyles = makeStyles((theme) => ({

@@ -1,8 +1,12 @@
-const url = process.env.REACT_APP_URL;
+let url = process.env.REACT_APP_URL;
+const {REACT_APP_URL} = process.env;
+
+// TODO (ca): eliminate hardcoded
 if (url === undefined) {
   console.log(
-    '[frontend-test-master][Error] No URL specified in the env variables',
+    '[frontend-test-master][Error] No URL specified in the env variables, hardcoded',
   );
+  url = 'https://api-test-cornershop-dot-cristian-valdivia.ue.r.appspot.com';
 }
 
 export default url;

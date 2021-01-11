@@ -2,30 +2,30 @@ import {
   FETCH_COUNT_ERROR,
   FETCH_COUNT_REQUEST,
   FETCH_COUNT_SUCCESS,
-} from '../actions/fetchCountActions';
+} from '../actions/fetch-counts.actions';
 
 import {
   INCREMENT_VALUE_ERROR,
   INCREMENT_VALUE_REQUEST,
   INCREMENT_VALUE_SUCCESS,
-} from '../actions/incrementValueActions';
+} from '../actions/increment-value.actions';
 
 import {
   DECREMENT_VALUE_ERROR,
   DECREMENT_VALUE_REQUEST,
   DECREMENT_VALUE_SUCCESS,
-} from '../actions/decrementValueActions';
+} from '../actions/decrement-value.actions';
 
 import {
   ADD_COUNTER_ERROR,
   ADD_COUNTER_REQUEST,
   ADD_COUNTER_SUCCESS,
-} from '../actions/addCounterActions';
+} from '../actions/add-counter.actions';
 import {
   DELETE_COUNTER_ERROR,
   DELETE_COUNTER_REQUEST,
   DELETE_COUNTER_SUCCESS,
-} from '../actions/deleteCounterActions';
+} from '../actions/delete-counter.actions';
 
 const initialState = {
   loading: false,

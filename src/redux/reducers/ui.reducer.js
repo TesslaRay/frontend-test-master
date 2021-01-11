@@ -1,4 +1,4 @@
-import {SELECT_ITEM, UNSELECT_ITEM} from '../actions/selectItemActions';
+import {SELECT_ITEM, UNSELECT_ITEM} from '../actions/select-item.actions';
 
 const initialState = {
   itemSelected: [],

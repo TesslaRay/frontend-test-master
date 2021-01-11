@@ -12,10 +12,10 @@ import {ActivityIndicator} from '../components/activityindicator.component';
 import Divider from '@material-ui/core/Divider';
 
 import {useDispatch, useSelector} from 'react-redux';
-import fetchCount from '../redux/actions/fetchCountActions';
+import fetchCount from '../redux/actions/fetch-counts.actions';
 import {ShareButton} from '../components/sharebutton.component';
-import {unselectItem} from '../redux/actions/selectItemActions';
-import {desactivateSearch} from '../redux/actions/searchCounterActions';
+import {unselectItem} from '../redux/actions/select-item.actions';
+import {desactivateSearch} from '../redux/actions/search-counter.actions';
 
 // TODO: align center !!
 const useStyles = makeStyles((theme) => ({

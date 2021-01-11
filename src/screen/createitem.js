@@ -14,14 +14,14 @@ import InputBase from '@material-ui/core/InputBase';
 
 import {ActivityIndicator} from '../components/activityindicator.component';
 import {useDispatch, useSelector} from 'react-redux';
-import addCounter from '../redux/actions/addCounterActions';
+import addCounter from '../redux/actions/add-counter.actions';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import {unselectItem} from '../redux/actions/selectItemActions';
+import {unselectItem} from '../redux/actions/select-item.actions';
 import {primary} from '../utils/colors';
 
 const useStyles = makeStyles((theme) => ({

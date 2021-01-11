@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
-import count_reducer from './mainReducer';
-import search_reducer from './searchReducer';
-import ui_reducer from './uiReducer';
+import count_reducer from './main.reducer';
+import search_reducer from './search.reducer';
+import ui_reducer from './ui.reducer';
 
 const rootReducers = combineReducers({
   count_reducer,

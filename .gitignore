@@ -3,7 +3,7 @@ node_modules
 
 # production
 /build
-app.yaml
 
 env-dev.json
 env-prod.json
+.env
