@@ -51,6 +51,12 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: boxShadow.boxShadow,
     textTransform: 'none',
   },
+  dismiss: {
+    color: primary,
+    fontWeight: '600',
+    boxShadow: boxShadow.boxShadow,
+    textTransform: 'none',
+  },
 }));
 
 export const DeleteButton = () => {
@@ -78,7 +84,7 @@ export const DeleteButton = () => {
         <DeleteIcon />
       </Button>
 
-      {/* Dialog */}
+      {/* Delete confirmation */}
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>
           <Typography
@@ -100,7 +106,7 @@ export const DeleteButton = () => {
             onClick={() => {
               dispatch(deleteCounter(ui_reducer.itemSelected[0].id));
               handleClose();
-              dispatch(unselectItem());
+              // dispatch(unselectItem());
             }}
             color="primary"
           >

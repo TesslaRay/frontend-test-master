@@ -16,6 +16,7 @@ import fetchCount from '../redux/actions/fetch-counts.actions';
 import {ShareButton} from '../components/sharebutton.component';
 import {unselectItem} from '../redux/actions/select-item.actions';
 import {desactivateSearch} from '../redux/actions/search-counter.actions';
+import {DeletetionError} from '../components/deletetionerror.component';
 
 // TODO: align center !!
 const useStyles = makeStyles((theme) => ({
@@ -59,7 +60,10 @@ const Main = () => {
   const mainStateRender = () => {
     return (
       <React.Fragment>
+        {/* Loading */}
         {count_reducer.loading && <ActivityIndicator />}
+
+        {/* No content */}
         {!count_reducer.loading &&
           count_reducer.counts.length < 1 &&
           count_reducer.error === '' && (
@@ -71,11 +75,17 @@ const Main = () => {
               </p>
             </div>
           )}
+
+        {/* Has content */}
         {count_reducer.counts.length >= 1 && (
           <div>
             <Dimmer />
+            {/* Loading */}
+            {count_reducer.errorDeleteCounter !== '' && <DeletetionError />}
           </div>
         )}
+
+        {/* Error  */}
         {count_reducer.error !== '' && (
           <div>
             <p className={classes.title}>Couldn’t load the counters</p>
@@ -112,6 +122,7 @@ const Main = () => {
           }}
         >
           <Divider />
+
           {ui_reducer.itemSelected.length > 0 && (
             <React.Fragment>
               <DeleteButton />
