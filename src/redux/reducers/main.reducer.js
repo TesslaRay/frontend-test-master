@@ -116,6 +116,7 @@ const count_reducer = (state = initialState, action) => {
       };
     }
 
+    // TODO: fix reducer
     case ADD_COUNTER_REQUEST: {
       return {
         ...state,

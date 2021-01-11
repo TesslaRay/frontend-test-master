@@ -18,10 +18,19 @@ import {unselectItem} from '../redux/actions/select-item.actions';
 import {desactivateSearch} from '../redux/actions/search-counter.actions';
 import {DeletetionError} from '../components/deletetionerror.component';
 
+import {container} from '../utils/constans';
+
 // TODO: align center !!
 const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: 'center',
+    alignItems: 'center',
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      height: '100%',
+    },
+    width: '570px',
+    margin: 'auto',
   },
   title: {
     marginTop: '30vh',
@@ -35,13 +44,23 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '13px',
     color: '#4A4A4A',
   },
-  expand: {
-    height: '80vh',
-  },
   bottom: {
     position: 'fixed',
     bottom: theme.spacing(2),
-    width: '95%',
+    width: '100%',
+  },
+  searchBarContainer: {
+    [theme.breakpoints.down('xs')]: {
+      width: '90%',
+    },
+    width: '379px',
+    margin: 'auto',
+  },
+  containerButtons: {
+    [theme.breakpoints.down('xs')]: {
+      width: '90%',
+    },
+    width: '570px',
   },
 }));
 
@@ -100,9 +119,11 @@ const Main = () => {
 
   return (
     <React.Fragment>
-      <SearchBar />
-
       <div className={classes.root}>
+        <div className={classes.searchBarContainer}>
+          <SearchBar />
+        </div>
+
         <div
           onClick={() => {
             if (ui_reducer.itemSelected.length > 0) {
@@ -113,7 +134,7 @@ const Main = () => {
             }
           }}
         >
-          <div className={classes.expand}>{mainStateRender()}</div>
+          {mainStateRender()}
         </div>
         <div
           className={classes.bottom}
@@ -123,14 +144,15 @@ const Main = () => {
         >
           <Divider />
 
-          {ui_reducer.itemSelected.length > 0 && (
-            <React.Fragment>
-              <DeleteButton />
-              <ShareButton />
-            </React.Fragment>
-          )}
-
-          <AddButton />
+          <div className={classes.containerButtons}>
+            {ui_reducer.itemSelected.length > 0 && (
+              <React.Fragment>
+                <DeleteButton />
+                <ShareButton />
+              </React.Fragment>
+            )}
+            <AddButton />
+          </div>
         </div>
       </div>
     </React.Fragment>

@@ -19,12 +19,11 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       border: `2px solid ${primary}`,
     },
-    marginRight: theme.spacing(2),
-    marginTop: '2vh',
-    marginLeft: 0,
+    border: '1px solid rgba(0, 0, 0, 0.02)',
     width: '100%',
     color: '#888B90',
     boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.05)',
+    marginTop: '5px',
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -58,24 +57,19 @@ export const SearchBar = () => {
   };
 
   return (
-    <Box>
-      <div
-        className={classes.search}
-        onClick={() => dispatch(activateSearch())}
-      >
-        <div className={classes.searchIcon}>
-          <SearchIcon />
-        </div>
-        <InputBase
-          fullWidth={true}
-          placeholder="Search Counters"
-          classes={{
-            input: classes.inputInput,
-          }}
-          onChange={onChange}
-          inputProps={{'aria-label': 'search'}}
-        />
+    <div className={classes.search} onClick={() => dispatch(activateSearch())}>
+      <div className={classes.searchIcon}>
+        <SearchIcon />
       </div>
-    </Box>
+      <InputBase
+        fullWidth={true}
+        placeholder="Search Counters"
+        classes={{
+          input: classes.inputInput,
+        }}
+        onChange={onChange}
+        inputProps={{'aria-label': 'search'}}
+      />
+    </div>
   );
 };

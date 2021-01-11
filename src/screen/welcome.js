@@ -6,13 +6,13 @@ import {makeStyles} from '@material-ui/core/styles';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import {ReactComponent as Logo} from '../images/logo-test.svg';
 
-import {Box, Button} from '@material-ui/core';
+import {Box, Button, Typography} from '@material-ui/core';
+import {boxShadow} from '../utils/constans';
 
 // TODO: margin: 8px where??
 // TODO: have a backgroundColor ??
 const useStyles = makeStyles((theme) => ({
   root: {
-    // backgroundColor: '#F9F9F9',
     backgroundColor: 'white',
     textAlign: 'center',
     height: '100vh',
@@ -40,13 +40,19 @@ const useStyles = makeStyles((theme) => ({
   button: {
     textTransform: 'none',
     color: 'white',
+    borderRadius: '8px',
+    boxShadow: boxShadow.boxShadow,
+  },
+  textButton: {
+    fontWeight: '600',
+    fontSize: '15px',
   },
 }));
 
 const Welcome = () => {
   const classes = useStyles();
   return (
-    <Box className={classes.root} position="fixed">
+    <Box className={classes.root}>
       <SvgIcon
         component={Logo}
         viewBox="0 0 206 209"
@@ -65,7 +71,7 @@ const Welcome = () => {
           component={Link}
           to="/main"
         >
-          Get started
+          <Typography className={classes.textButton}>Get started</Typography>
         </Button>
       </Box>
     </Box>

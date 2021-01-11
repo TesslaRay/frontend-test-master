@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     height: '53px',
     borderRadius: '6px',
     display: 'flex',
-    alignItems: 'center',
+    // alignItems: 'center',
   },
   selected: {
     height: '53px',
@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   text: {
+    textAlign: 'left',
     position: 'absolute',
     fontFamily: theme.typography.fontFamily,
     fontWeight: '400',
@@ -43,7 +44,10 @@ const useStyles = makeStyles((theme) => ({
     width: '50%',
   },
   rigthside: {
-    marginLeft: '200px',
+    // marginLeft: '200px',
+    // textAlign: 'right',
+    backgroundColor: 'red',
+    // position: 'absolute',
     display: 'flex',
     alignItems: 'center',
   },
