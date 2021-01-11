@@ -22,8 +22,6 @@ export const ItemList = () => {
     count.title.includes(search_reducer.searchCounter),
   );
 
-  // console.log(search_reducer.searchState && searchFilter.length > 0);
-
   if (search_reducer.searchState && search_reducer.searchCounter.length > 0) {
     if (search_reducer.searchState && searchFilter.length > 0) {
       return searchFilter.map((item, key) => {

@@ -82,12 +82,7 @@ export const Header = () => {
             {!count_reducer.loadingChangeValue && (
               <ReplayIcon className={classes.icon} />
             )}
-            {count_reducer.loadingChangeValue && (
-              <React.Fragment>
-                <ReplayIcon className={classes.iconRefresh} />
-                <Typography color="primary">Refreshing…</Typography>
-              </React.Fragment>
-            )}
+            {/* Refreshin */}
             {count_reducer.loadingChangeValue && (
               <React.Fragment>
                 <ReplayIcon className={classes.iconRefresh} />
@@ -96,6 +91,7 @@ export const Header = () => {
             )}
           </React.Fragment>
         )}
+
         {ui_reducer.itemSelected.length > 0 && (
           <React.Fragment>
             <React.Fragment>

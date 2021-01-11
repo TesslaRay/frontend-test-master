@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
   dimmerOn: {
     opacity: 0.2,
   },
+  dimmerOff: {
+    opacity: 1,
+  },
 }));
 
 export const Dimmer = () => {
@@ -20,14 +23,34 @@ export const Dimmer = () => {
     count.title.includes(search_reducer.searchCounter),
   );
 
-  return search_reducer.searchState && searchFilter.length > 0 ? (
-    <div className={classes.dimmerOn}>
-      <Header />
-      <ItemList />
-    </div>
-  ) : (
-    <React.Fragment>
-      <ItemList />
-    </React.Fragment>
-  );
+  if (search_reducer.searchState) {
+    if (searchFilter.length && search_reducer.searchCounter !== '') {
+      return (
+        <div>
+          <Header />
+          <ItemList />
+        </div>
+      );
+    } else if (search_reducer.searchCounter === '') {
+      return (
+        <div className={classes.dimmerOn}>
+          <Header />
+          <ItemList />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <ItemList />
+        </div>
+      );
+    }
+  } else {
+    return (
+      <React.Fragment>
+        <Header />
+        <ItemList />
+      </React.Fragment>
+    );
+  }
 };
