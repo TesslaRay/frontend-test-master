@@ -6,7 +6,8 @@
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"node server/index.js\"",
     "deploy": "npm run build && gcloud app deploy",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "test": "jest"
   },
   "author": "Cornershop",
   "license": "ISC",
@@ -43,5 +44,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }

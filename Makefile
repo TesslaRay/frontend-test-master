@@ -23,5 +23,9 @@ deploy d:
 	@echo "[frontend-test-master] Deploy on GCP... \n"
 	@npm run deploy
 
+test t:
+	@echo "[frontend-test-master] Testing frontend... \n"
+	@npm run test
+
 
 	
