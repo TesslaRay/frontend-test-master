@@ -116,7 +116,6 @@ const count_reducer = (state = initialState, action) => {
       };
     }
 
-    // TODO: fix reducer
     case ADD_COUNTER_REQUEST: {
       return {
         ...state,
@@ -125,6 +124,11 @@ const count_reducer = (state = initialState, action) => {
     }
 
     case ADD_COUNTER_SUCCESS: {
+      if (state.counts.length) {
+        state.counts[0].push(action.payload[0]);
+      } else {
+        state.counts.push(action.payload[0]);
+      }
       return {
         ...state,
         loadingAddCounter: false,
