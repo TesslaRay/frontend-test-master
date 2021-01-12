@@ -77,6 +77,12 @@ const Main = () => {
 
   const classes = useStyles();
 
+  let hasContent = false;
+  if (count_reducer.counts[0] === undefined) {
+  } else {
+    hasContent = count_reducer.counts[0].length ? true : false;
+  }
+
   const mainStateRender = () => {
     return (
       <React.Fragment>
@@ -84,23 +90,21 @@ const Main = () => {
         {count_reducer.loading && <ActivityIndicator />}
 
         {/* No content */}
-        {!count_reducer.loading &&
-          count_reducer.counts.length < 1 &&
-          count_reducer.error === '' && (
-            <div>
-              <p className={classes.title}>No counters yet</p>
-              <p className={classes.subtitle}>
-                “When I started counting my blessings, my whole life turned
-                around.” —Willie Nelson
-              </p>
-            </div>
-          )}
+        {(count_reducer.counts[0] === undefined ||
+          count_reducer.counts[0].length === 0) && (
+          <div>
+            <p className={classes.title}>No counters yet</p>
+            <p className={classes.subtitle}>
+              “When I started counting my blessings, my whole life turned
+              around.” —Willie Nelson
+            </p>
+          </div>
+        )}
 
         {/* Has content */}
-        {count_reducer.counts.length >= 1 && (
+        {hasContent && (
           <div>
             <Dimmer />
-            {/* Loading */}
             {count_reducer.errorDeleteCounter !== '' && <DeletetionError />}
           </div>
         )}

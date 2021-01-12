@@ -127,7 +127,7 @@ const count_reducer = (state = initialState, action) => {
       if (state.counts.length) {
         state.counts[0].push(action.payload[0]);
       } else {
-        state.counts.push(action.payload[0]);
+        state.counts.push(action.payload);
       }
       return {
         ...state,

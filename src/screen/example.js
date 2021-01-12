@@ -156,6 +156,9 @@ const ExampleScreen = () => {
       name: 'Days alive',
     },
     {
+      name: 'Minutes without bugs',
+    },
+    {
       name: 'Workdays',
     },
     {

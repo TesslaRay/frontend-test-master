@@ -13,6 +13,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import {danger, title, subtitle, primary} from '../utils/colors';
 import {Typography} from '@material-ui/core';
 import {boxShadow} from '../utils/constans';
+import {unselectItem} from '../redux/actions/select-item.actions';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -105,7 +106,7 @@ export const DeleteButton = () => {
             onClick={() => {
               dispatch(deleteCounter(ui_reducer.itemSelected[0].id));
               handleClose();
-              // dispatch(unselectItem());
+              dispatch(unselectItem());
             }}
             color="primary"
           >

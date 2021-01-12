@@ -82,7 +82,7 @@ export const Header = () => {
             {!count_reducer.loadingChangeValue && (
               <ReplayIcon className={classes.icon} />
             )}
-            {/* Refreshin */}
+            {/* Refreshing */}
             {count_reducer.loadingChangeValue && (
               <React.Fragment>
                 <ReplayIcon className={classes.iconRefresh} />
