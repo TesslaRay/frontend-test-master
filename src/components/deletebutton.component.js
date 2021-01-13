@@ -25,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.1)',
     float: 'left',
   },
+  paper: {
+    borderRadius: '10px',
+    backgroundColor: '#FAFAFA',
+    boxShadow: '0px 24px 38px rgba(0, 0, 0, 0.14)',
+  },
   title: {
     color: title,
     fontSize: '18px',
@@ -85,7 +90,13 @@ export const DeleteButton = () => {
       </Button>
 
       {/* Delete confirmation */}
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        classes={{
+          paper: classes.paper,
+        }}
+      >
         <DialogTitle>
           <Typography
             align="center"

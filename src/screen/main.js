@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     [theme.breakpoints.down('xs')]: {
       width: '100%',
-      height: '100%',
     },
     width: '570px',
     margin: 'auto',
@@ -61,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     width: '570px',
   },
   body: {
-    height: '82vh',
+    height: '92vh',
   },
 }));
 
@@ -82,7 +81,6 @@ const Main = () => {
   } else {
     hasContent = count_reducer.counts[0].length ? true : false;
   }
-
   const mainStateRender = () => {
     return (
       <React.Fragment>
@@ -144,7 +142,7 @@ const Main = () => {
         </div>
 
         <Box
-          className={classes.body}
+          className={hasContent ? classes.body : null}
           onClick={() => {
             if (ui_reducer.itemSelected.length > 0) {
               dispatch(unselectItem());
