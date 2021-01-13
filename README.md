@@ -131,3 +131,7 @@ Ok, after 2 days of work I have an MVP. It´s not perfect but works. To improve 
 Some UX considerations:
   - When user click save in Create Item Screen send to Main Screen.
   - Whe user click in example send to Main Screen.
+
+I used Jest with redux-mock-store to make some simple and general behavioral tests, which test actions and I use @testing-library/react combine d with@testing-library/jest-dom to test components. It´s a very simple use of this libraries:
+ * Components test:
+   * <AddButton />: test if components its a button, fail its no have button. Fail with two buttons two. Only pass with one button

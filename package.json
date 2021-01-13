@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.12.12",
+    "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "axios-mock-adapter": "^1.19.0",
     "redux-mock-store": "^1.5.4"

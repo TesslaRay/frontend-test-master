@@ -1,21 +1,27 @@
 import React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {BrowserRouter as Router} from 'react-router-dom';
+import '@testing-library/jest-dom';
 
 import {AddButton} from '../components/addbutton.component';
 
-describe('Componentns test', () => {
-  test('renders AddButton component', () => {
-    const {container} = render(
+describe('Componentens test', () => {
+  test('<AddButton />', () => {
+    render(
       <Router>
         <AddButton />
       </Router>,
     );
-    // console.log(container.innerHTML);
-    // console.log(container.getByText);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+    // expect(true).toEqual(true);
+  });
 
-    // console.log(screen.getByRole('button'));
-    fireEvent.click(screen.getByRole('button'));
-    expect(screen.getByRole).toHaveBeenCalledTimes(1);
+  test('<AddError />', () => {
+    const {container} = render(
+      <Router>
+        <AddError />
+      </Router>,
+    );
+    console.log(container);
   });
 });
