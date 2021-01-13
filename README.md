@@ -191,4 +191,5 @@ Develop Commands
 
 `make t`: run test.
 
-**Note**: If you run the test, 8 pass and 1 fail. The pass failed its mencioned in <CounterCell /> above.
+
+**Note:**If you run the tests, you will notice that 8 tests pass and one fails.The failed test is mentioned in the CounterCell section above.
