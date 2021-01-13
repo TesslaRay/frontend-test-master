@@ -129,9 +129,15 @@ At first and after talking about it with friends I try to use TDD, but since I n
 Ok, after 2 days of work I have an MVP. It´s not perfect but works. To improve the use of the application I deploy the app in GCP and ability CI with Githubs Actions. I send the link [here](https://test-cornershop-dot-cristian-valdivia.ue.r.appspot.com/) to some friends and family. It´s weird. Only two discover some bugs. Some told me it was perfect but have a lot of bugs. I have noticed that I have to take some considerations from UX that are not clear in Figma.
 
 Some UX considerations:
-  - When user click save in Create Item Screen send to Main Screen.
-  - Whe user click in example send to Main Screen.
+  - When the user clicks save in Create Item Screen send to Main Screen.
+  - When the user clicks in example send to Main Screen.
 
-I used Jest with redux-mock-store to make some simple and general behavioral tests, which test actions and I use @testing-library/react combine d with@testing-library/jest-dom to test components. It´s a very simple use of this libraries:
+I used Jest with redux-mock-store to make some simple and general behavioral tests in test actions.
+I use @testing-library/react combined with h@testing-library/jest-dom to test components. It´s a very simple use of these libraries:
  * Components test:
-   * <AddButton />: test if components its a button, fail its no have button. Fail with two buttons two. Only pass with one button
+   * <AddButton />: test if components its a button, fail it does not have a button. Fail with two buttons too. Only pass with one button
+   * <AddError>: the same, test its components have a component with role:'button'
+   * <SearchBar>: write Coke in input and test
+   * <CounterCell>: pass item and test if the render is correct. I try to test the increment of value when the user clicks on the plus button get with data-testid = "plus" but not work. I´m not sure, because the state depends on the server or something else.
+
+I notice it´s a more simple test component when are stateless, but I don't have time to change the component to stateless  Probably this form it´s a good practice.

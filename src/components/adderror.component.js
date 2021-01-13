@@ -63,27 +63,29 @@ export const AddError = () => {
   };
 
   return (
-    <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>
-        <Typography align="center" className={classes.title}>
-          Couldn’t create counter
-        </Typography>
-      </DialogTitle>
-      <DialogContent>
-        <Typography className={classes.subtitle} align="center">
-          The Internet connection appears to be offline.
-        </Typography>
-      </DialogContent>
-      <DialogActions className={classes.dialogActions}>
-        <Button
-          className={classes.dismiss}
-          onClick={() => {
-            handleClose();
-          }}
-        >
-          Dismiss
-        </Button>
-      </DialogActions>
-    </Dialog>
+    <React.Fragment>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>
+          <Typography align="center" className={classes.title}>
+            Couldn’t create counter
+          </Typography>
+        </DialogTitle>
+        <DialogContent>
+          <Typography className={classes.subtitle} align="center">
+            The Internet connection appears to be offline.
+          </Typography>
+        </DialogContent>
+        <DialogActions className={classes.dialogActions}>
+          <Button
+            className={classes.dismiss}
+            onClick={() => {
+              handleClose();
+            }}
+          >
+            Dismiss
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </React.Fragment>
   );
 };

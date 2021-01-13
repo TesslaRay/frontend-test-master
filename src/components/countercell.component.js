@@ -64,7 +64,6 @@ export const CounterCell = ({item}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const ui_reducer = useSelector((state) => state.ui_reducer);
-
   function handleDecrement() {
     dispatch(decrementValue(item));
   }
@@ -98,7 +97,9 @@ export const CounterCell = ({item}) => {
           )}
           {item.count === 0 && <RemoveIcon className={classes.equalZero} />}
           <span className={classes.number}>{item.count}</span>
-          <AddIcon color="primary" onClick={() => handleIncrement()} />
+          <div data-testid="plus">
+            <AddIcon color="primary" onClick={() => handleIncrement()} />
+          </div>
         </div>
       </Container>
     </Container>
