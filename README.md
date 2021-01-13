@@ -126,7 +126,7 @@ We hope your submission is… to die for.
  <a href="https://test-cornershop-dot-cristian-valdivia.ue.r.appspot.com/"><img src="src/images/logo-test.svg"width="100"></a>
 </p>
 
-<p align="center">The <i>demo</i> is <a href='https://test-cornershop-dot-cristian-valdivia.ue.r.appspot.com/'>HERE</a></br>This demo will be running until December 31, 2021 12:00 PM GMT-3<br /></p>
+<p align="center">The <i>demo</i> is <a href='https://test-cornershop-dot-cristian-valdivia.ue.r.appspot.com/'>HERE</a></br>This demo will be running until <b>December 31, 2021 12:00 PM GMT-3</b><br /></p>
 
 <hr>
 
@@ -182,11 +182,13 @@ Develop Commands
 
 `npm run`: run in development mode.
 
-`npm test`: build to production docker.
+`npm test`: run test.
 
 ### In mac
 `make i`: install dependencies.
 
 `make r`: run in development mode.
 
-`make t`: build to production docker.
+`make t`: run test.
+
+**Note**: If you run the test, 8 pass and 1 fail. The pass failed its mencioned in <CounterCell /> above.
