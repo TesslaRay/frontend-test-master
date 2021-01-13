@@ -27,16 +27,14 @@ export const fetchCountError = (error) => {
   };
 };
 
-const fetchCount = () => {
+export const fetchCount = () => {
   return (dispatch) => {
     dispatch(fetchCountRequest());
-    axios
+    return axios
       .get(`${url}/api/v1/counter`)
       .then((response) => {
         dispatch(fetchCountSuccess([response.data]));
       })
-      .catch((error) => dispatch(fetchCountError('No connection')));
+      .catch(() => dispatch(fetchCountError('No connection')));
   };
 };
-
-export default fetchCount;

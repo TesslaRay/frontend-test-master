@@ -9,7 +9,6 @@ import {ReactComponent as Logo} from '../images/logo-test.svg';
 import {Box, Button, Typography} from '@material-ui/core';
 import {boxShadow} from '../utils/constans';
 
-// TODO: have a backgroundColor ??
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: '#F9F9F9',

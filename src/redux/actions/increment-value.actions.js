@@ -27,14 +27,12 @@ export const incrementValueError = (error) => {
   };
 };
 
-const incrementValue = (item) => {
+export const incrementValue = (item) => {
   return (dispatch) => {
     dispatch(incrementValueRequest());
-    axios
+    return axios
       .post(`${url}/api/v1/counter/inc`, {id: item.id})
       .then((response) => dispatch(incrementValueSuccess([response.data])))
       .catch((error) => dispatch(incrementValueError('No connection')));
   };
 };
-
-export default incrementValue;

@@ -2,7 +2,7 @@ import axios from 'axios';
 import url from '../../config/env.js';
 
 export const ADD_COUNTER_REQUEST = 'ADD_COUNTER_REQUEST';
-export const ADD_COUNTER_SUCCESS = 'ADD_COUNTER_SUCCES';
+export const ADD_COUNTER_SUCCESS = 'ADD_COUNTER_SUCCESS';
 export const ADD_COUNTER_ERROR = 'ADD_COUNTER_ERROR';
 // --end-actions-types--
 
@@ -27,14 +27,12 @@ export const addCounterError = (error) => {
   };
 };
 
-const addCounter = (title) => {
+export const addCounter = (title) => {
   return (dispatch) => {
     dispatch(addCounterRequest());
-    axios
+    return axios
       .post(`${url}/api/v1/counter`, {title: title})
       .then((response) => dispatch(addCounterSuccess([response.data])))
       .catch((error) => dispatch(addCounterError('No connection')));
   };
 };
-
-export default addCounter;

@@ -8,7 +8,7 @@ import {danger, title, subtitle, primary} from '../utils/colors';
 import {Button, makeStyles, Typography} from '@material-ui/core';
 import {boxShadow} from '../utils/constans';
 import {useDispatch} from 'react-redux';
-import deleteCounter from '../redux/actions/delete-counter.actions';
+import {deleteCounter} from '../redux/actions/delete-counter.actions';
 
 const useStyles = makeStyles((theme) => ({
   button: {

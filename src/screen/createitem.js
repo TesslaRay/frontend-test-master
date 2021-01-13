@@ -14,7 +14,7 @@ import InputBase from '@material-ui/core/InputBase';
 
 import {ActivityIndicator} from '../components/activityindicator.component';
 import {useDispatch, useSelector} from 'react-redux';
-import addCounter from '../redux/actions/add-counter.actions';
+import {addCounter} from '../redux/actions/add-counter.actions';
 
 import {primary} from '../utils/colors';
 import {AddError} from '../components/adderror.component';
@@ -57,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)',
     borderRadius: '8px',
   },
-  // TODO: opacity?
   separator: {
     backgroundColor: '#C4C4C4',
     height: '3px',
@@ -131,6 +130,8 @@ const CreateItem = () => {
             color="primary"
             className={classes.saveButton}
             onClick={() => saveItem(counter)}
+            component={Link}
+            to="/main"
           >
             Save
           </Button>

@@ -8,8 +8,8 @@ import RemoveIcon from '@material-ui/icons/Remove';
 
 import {useDispatch, useSelector} from 'react-redux';
 
-import incrementValue from '../redux/actions/increment-value.actions';
-import decrementValue from '../redux/actions/decrement-value.actions';
+import {incrementValue} from '../redux/actions/increment-value.actions';
+import {decrementValue} from '../redux/actions/decrement-value.actions';
 import {selectItem} from '../redux/actions/select-item.actions';
 import {primary} from '../utils/colors';
 

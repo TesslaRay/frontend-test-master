@@ -27,11 +27,11 @@ export const deleteCounterError = (error) => {
   };
 };
 
-const deleteCounter = (id) => {
+export const deleteCounter = (id) => {
   return (dispatch) => {
     dispatch(deleteCounterRequest());
-    axios
-      .delete(`${url}/api/v1/counter/`, {
+    return axios
+      .delete(`${url}/api/v1/counter`, {
         data: {id: id},
         headers: {Authorization: '***'},
       })
@@ -41,5 +41,3 @@ const deleteCounter = (id) => {
       .catch((error) => dispatch(deleteCounterError('No connection')));
   };
 };
-
-export default deleteCounter;

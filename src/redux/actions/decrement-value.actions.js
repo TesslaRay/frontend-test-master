@@ -27,14 +27,12 @@ export const decrementValueError = (error) => {
   };
 };
 
-const decrementValue = (item) => {
+export const decrementValue = (item) => {
   return (dispatch) => {
     dispatch(decrementValueRequest());
-    axios
+    return axios
       .post(`${url}/api/v1/counter/dec`, {id: item.id})
       .then((response) => dispatch(decrementValueSuccess([response.data])))
       .catch((error) => dispatch(decrementValueError('No connection')));
   };
 };
-
-export default decrementValue;
