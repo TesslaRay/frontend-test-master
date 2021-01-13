@@ -115,7 +115,7 @@ export const ShareButton = () => {
           vertical: 'bottom',
           horizontal: 'left',
         }}
-        open={true}
+        open={open}
         autoHideDuration={800}
         onClose={handleClose}
         message="Copied"

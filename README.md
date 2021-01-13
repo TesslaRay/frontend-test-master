@@ -122,20 +122,44 @@ We hope your submission is… to die for.
 
 ## Diary of work from Cristian Valdivia
 
+<p align="center">
+ <a href="https://test-cornershop-dot-cristian-valdivia.ue.r.appspot.com/"><img src="src/images/logo-test.svg"width="100"></a>
+</p>
+
+<p align="center">The <i>demo</i> is <a href='https://test-cornershop-dot-cristian-valdivia.ue.r.appspot.com/'>HERE</a></br>This demo will be running until December 31, 2021 12:00 PM GMT-3<br /></p>
+
+<hr>
+
 I'm so excited to do this test. On my first day, I study the test and try to think about what approach to use.
 
 At first and after talking about it with friends I try to use TDD, but since I never took the test at React, this option was eliminated.  After that and with my mind more relaxed, I start with the more basic components as I noticed that some components like the search bar and the add button appear in almost all views. After that I program the  welcome screen and main screen. Tomorrow I will finish almost all the views and start with the functionality.
 
-Ok, after 2 days of work I have an MVP. It´s not perfect but works. To improve the use of the application I deploy the app in GCP and ability CI with Githubs Actions. I send the link [here](https://test-cornershop-dot-cristian-valdivia.ue.r.appspot.com/) to some friends and family. It´s weird. Only two discover some bugs. Some told me it was perfect but have a lot of bugs. I have noticed that I have to take some considerations from UX that are not clear in Figma.
+After 2 days of work I have an MVP. It´s not perfect but works. To improve the use of the application I deploy the app in GCP and ability CI with Githubs Actions. I send the link [here](https://test-cornershop-dot-cristian-valdivia.ue.r.appspot.com/) to some friends and family. It´s weird. Only two discover some bugs. Some told me it was perfect but have a lot of bugs. I have noticed that I have to take some considerations from UX that are not clear in Figma.
 
-I used Jest with redux-mock-store to make some simple and general behavioral tests in test actions.
-I use @testing-library/react combined with h@testing-library/jest-dom to test components. It´s a very simple use of these libraries:
- * Components test:
-   * <AddButton />: test if components its a button, fail it does not have a button. Fail with two buttons too. Only pass with one button
-   * <AddError>: the same, test its components have a component with role:'button'
-   * <SearchBar>: write Coke in input and test
-   * <CounterCell>: pass item and test if the render is correct. I try to test the increment of value when the user clicks on the plus button get with data-testid = "plus" but not work. I´m not sure, because the state depends on the server or something else.
+I used **Jest** with **redux-mock-store** to make some simple and general behavioral tests in test actions.
 
+I use **@testing-library/react** combined with **@testing-library/jest-dom** to test components. It´s a very simple use of these libraries:
+### Components test:
+  ```javascript
+   <AddButton />
+  ``` 
+   Test if components its a button, fail it does not have a button. Fail with two buttons too. Only pass with one button
+
+  ```javascript
+   <AddError />
+  ``` 
+  Test if components its a button, fail it does not have a button. Fail with two buttons too. Only pass with one button
+
+  ```javascript
+   <SearchBar />
+  ```
+  Write Coke in input and test 
+
+  ```javascript
+   <CounterCell />
+  ``` 
+  Pass item and test if the render is correct. I try to test the increment of value when the user clicks on the plus button get with data-testid = "plus" but doesn´t work. I'm not sure it's because the state depends on the server or or if it's for something else.
+  
 I notice it´s a more simple test component when are stateless, but I don't have time to change the component to stateless  Probably this form it´s a good practice.
 
 ### Design desicions
@@ -149,4 +173,7 @@ The application has been developed with:
 
 Some UX considerations:
   - When the user clicks save in Create Item Screen send to Main Screen.
-  - When the user clicks in example send to Main Screen.
+  - When the user add example from Examples Screen send to Main Screen.
+  - Add snackbar with messaged: Copied when the copy button in Main Screen (Share) its clicks.
+
+
