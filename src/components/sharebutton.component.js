@@ -28,8 +28,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#FAFAFA',
     boxShadow: '0px 24px 38px rgba(0, 0, 0, 0.14)',
     position: 'absolute',
-    left: '0%',
-    top: '70%',
+    left: '55vh',
+    top: '70vh',
+    [theme.breakpoints.down('xs')]: {
+      left: '0%',
+      top: '70%',
+    },
   },
   title: {
     color: title,

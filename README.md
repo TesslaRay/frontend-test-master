@@ -176,4 +176,17 @@ Some UX considerations:
   - When the user add example from Examples Screen send to Main Screen.
   - Add snackbar with messaged: Copied when the copy button in Main Screen (Share) its clicks.
 
+Develop Commands
+========
+`npm install`: install dependencies.
 
+`npm run`: run in development mode.
+
+`npm test`: build to production docker.
+
+### In mac
+`make i`: install dependencies.
+
+`make r`: run in development mode.
+
+`make t`: build to production docker.
