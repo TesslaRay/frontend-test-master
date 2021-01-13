@@ -17,7 +17,7 @@ import * as deleteCounterActions from '../redux/actions/delete-counter.actions';
 
 const store = mockStore();
 
-describe('Test actions', () => {
+describe('Actions test', () => {
   beforeEach(() => {
     store.clearActions();
   });

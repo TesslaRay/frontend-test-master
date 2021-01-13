@@ -1,4 +1,5 @@
 {
   "testRegex": "((\\.|/*.)(test))\\.js?$",
-  "testTimeout": 30000
+  "testTimeout": 30000,
+  "moduleFileExtensions": "[...defaults.moduleFileExtensions, 'ts', 'tsx']"
 }
