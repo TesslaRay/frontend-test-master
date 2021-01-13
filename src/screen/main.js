@@ -72,7 +72,7 @@ const Main = () => {
 
   useEffect(() => {
     dispatch(fetchCount());
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const classes = useStyles();
 

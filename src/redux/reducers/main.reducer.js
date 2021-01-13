@@ -49,7 +49,7 @@ const count_reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        counts: action.payload[0] == '' ? [] : action.payload,
+        counts: action.payload[0] === '' ? [] : action.payload,
       };
     }
     case FETCH_COUNT_ERROR: {
@@ -68,9 +68,9 @@ const count_reducer = (state = initialState, action) => {
     }
 
     case INCREMENT_VALUE_SUCCESS: {
-      state.counts[0].map((objet) => {
-        if (objet.id === action.payload[0].id) {
-          objet.count = action.payload[0].count;
+      state.counts[0].forEach((element) => {
+        if (element.id === action.payload[0].id) {
+          element.count = action.payload[0].count;
         }
       });
 
@@ -96,11 +96,16 @@ const count_reducer = (state = initialState, action) => {
     }
 
     case DECREMENT_VALUE_SUCCESS: {
-      state.counts[0].map((objet) => {
-        if (objet.id === action.payload[0].id) {
-          objet.count = action.payload[0].count;
+      state.counts[0].forEach((element) => {
+        if (element.id === action.payload[0].id) {
+          element.count = action.payload[0].count;
         }
       });
+      // state.counts[0].map((objet) => {
+      //   if (objet.id === action.payload[0].id) {
+      //     objet.count = action.payload[0].count;
+      //   }
+      // });
 
       return {
         ...state,
