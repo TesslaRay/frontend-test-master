@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const AddButton = () => {
+const AddButton = () => {
   const classes = useStyles();
 
   return (
@@ -31,3 +31,5 @@ export const AddButton = () => {
     </div>
   );
 };
+
+export default AddButton;

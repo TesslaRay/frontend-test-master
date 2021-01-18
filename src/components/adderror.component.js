@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 export const AddError = () => {
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
 
   const handleClose = () => {
     setOpen(false);

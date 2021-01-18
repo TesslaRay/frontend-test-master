@@ -2,8 +2,9 @@ import {makeStyles} from '@material-ui/core';
 import React from 'react';
 
 import {useSelector} from 'react-redux';
-import {Header} from './header.component';
-import {ItemList} from './itemlist.component';
+
+import Header from './header.component';
+import ItemList from './itemlist.component';
 
 const useStyles = makeStyles((theme) => ({
   dimmerOn: {
@@ -16,22 +17,22 @@ const useStyles = makeStyles((theme) => ({
 
 export const Dimmer = () => {
   const classes = useStyles();
-  const count_reducer = useSelector((state) => state.count_reducer);
-  const search_reducer = useSelector((state) => state.search_reducer);
+  const countReducer = useSelector((state) => state.countReducer);
+  const searchReducer = useSelector((state) => state.searchReducer);
 
-  let searchFilter = count_reducer.counts[0].filter((count) =>
-    count.title.includes(search_reducer.searchCounter),
+  let searchFilter = countReducer.counts[0].filter((count) =>
+    count.title.includes(searchReducer.searchCounter),
   );
 
-  if (search_reducer.searchState) {
-    if (searchFilter.length && search_reducer.searchCounter !== '') {
+  if (searchReducer.searchState) {
+    if (searchFilter.length && searchReducer.searchCounter !== '') {
       return (
         <div>
           <Header />
           <ItemList />
         </div>
       );
-    } else if (search_reducer.searchCounter === '') {
+    } else if (searchReducer.searchCounter === '') {
       return (
         <div className={classes.dimmerOn}>
           <Header />

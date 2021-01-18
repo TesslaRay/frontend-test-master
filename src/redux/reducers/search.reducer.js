@@ -9,7 +9,7 @@ const initialState = {
   searchState: false,
 };
 
-const search_reducer = (state = initialState, action) => {
+const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;
@@ -34,4 +34,4 @@ const search_reducer = (state = initialState, action) => {
   }
 };
 
-export default search_reducer;
+export default searchReducer;

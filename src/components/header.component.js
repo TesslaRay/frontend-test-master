@@ -45,45 +45,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Header = () => {
+const Header = () => {
   const classes = useStyles();
-  const count_reducer = useSelector((state) => state.count_reducer);
-  const ui_reducer = useSelector((state) => state.ui_reducer);
-  const search_reducer = useSelector((state) => state.search_reducer);
+  const countReducer = useSelector((state) => state.countReducer);
+  const uiReducer = useSelector((state) => state.uiReducer);
+  const searchReducer = useSelector((state) => state.searchReducer);
 
-  let searchFilter = count_reducer.counts[0].filter((count) =>
-    count.title.includes(search_reducer.searchCounter),
+  let searchFilter = countReducer.counts[0].filter((count) =>
+    count.title.includes(searchReducer.searchCounter),
   );
 
   let times = 0;
-  if (search_reducer.searchState && search_reducer.searchCounter.length > 0) {
+  if (searchReducer.searchState && searchReducer.searchCounter.length > 0) {
     for (let i = 0; i < searchFilter.length; i++) {
       times = times + searchFilter[i].count;
     }
   } else {
-    for (let i = 0; i < count_reducer.counts[0].length; i++) {
-      times = times + count_reducer.counts[0][i].count;
+    for (let i = 0; i < countReducer.counts[0].length; i++) {
+      times = times + countReducer.counts[0][i].count;
     }
   }
 
   return (
     <Container className={classes.box}>
       <Container className={classes.block}>
-        {ui_reducer.itemSelected.length < 1 && (
+        {uiReducer.itemSelected.length < 1 && (
           <React.Fragment>
             <div className={classes.items}>
-              {search_reducer.searchState &&
-              search_reducer.searchCounter.length > 0
+              {searchReducer.searchState &&
+              searchReducer.searchCounter.length > 0
                 ? searchFilter.length
-                : count_reducer.counts[0].length}
+                : countReducer.counts[0].length}
               &nbsp; items
             </div>
             <div className={classes.times}>{times} times</div>
-            {!count_reducer.loadingChangeValue && (
+            {!countReducer.loadingChangeValue && (
               <ReplayIcon className={classes.icon} />
             )}
             {/* Refreshing */}
-            {count_reducer.loadingChangeValue && (
+            {countReducer.loadingChangeValue && (
               <React.Fragment>
                 <ReplayIcon className={classes.iconRefresh} />
                 <Typography color="primary">Refreshing…</Typography>
@@ -92,7 +92,7 @@ export const Header = () => {
           </React.Fragment>
         )}
 
-        {ui_reducer.itemSelected.length > 0 && (
+        {uiReducer.itemSelected.length > 0 && (
           <React.Fragment>
             <React.Fragment>
               <Typography color="primary">1 selected</Typography>
@@ -104,3 +104,5 @@ export const Header = () => {
     </Container>
   );
 };
+
+export default Header;

@@ -1,51 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import {makeStyles} from '@material-ui/core/styles';
-
 import SvgIcon from '@material-ui/core/SvgIcon';
-import {ReactComponent as Logo} from '../images/logo-test.svg';
+import {ReactComponent as Logo} from '../../images/logo-test.svg';
 
 import {Box, Button, Typography} from '@material-ui/core';
-import {boxShadow} from '../utils/constans';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: '#F9F9F9',
-    textAlign: 'center',
-    height: '100vh',
-  },
-  logo: {
-    marginTop: '10vh',
-    width: '178px',
-    height: '178px',
-  },
-  title: {
-    marginTop: '10vh',
-    fontFamily: theme.typography.fontFamily,
-    fontSize: '18px',
-    fontWeight: '600',
-  },
-  subtitle: {
-    margin: theme.spacing(8),
-    fontFamily: theme.typography.fontFamily,
-    fontSize: '13px',
-    color: '#4A4A4A',
-  },
-  bottom: {
-    color: 'white',
-  },
-  button: {
-    textTransform: 'none',
-    color: 'white',
-    borderRadius: '8px',
-    boxShadow: boxShadow.boxShadow,
-  },
-  textButton: {
-    fontWeight: '600',
-    fontSize: '15px',
-  },
-}));
+import useStyles from './welcome.style';
 
 const Welcome = () => {
   const classes = useStyles();

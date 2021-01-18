@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
@@ -64,12 +64,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const DeleteButton = () => {
+const DeleteButton = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const ui_reducer = useSelector((state) => state.ui_reducer);
+  const uiReducer = useSelector((state) => state.uiReducer);
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -101,7 +101,7 @@ export const DeleteButton = () => {
           <Typography
             align="center"
             className={classes.title}
-          >{`Delete the “${ui_reducer.itemSelected[0].title}” counter?`}</Typography>
+          >{`Delete the “${uiReducer.itemSelected[0].title}” counter?`}</Typography>
         </DialogTitle>
         <DialogContent>
           <Typography className={classes.subtitle} align="center">
@@ -115,7 +115,7 @@ export const DeleteButton = () => {
           <Button
             className={classes.delete}
             onClick={() => {
-              dispatch(deleteCounter(ui_reducer.itemSelected[0].id));
+              dispatch(deleteCounter(uiReducer.itemSelected[0].id));
               handleClose();
               dispatch(unselectItem());
             }}
@@ -128,3 +128,5 @@ export const DeleteButton = () => {
     </div>
   );
 };
+
+export default DeleteButton;

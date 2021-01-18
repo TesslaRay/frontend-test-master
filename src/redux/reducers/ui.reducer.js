@@ -6,7 +6,7 @@ const initialState = {
   copyIsActive: false,
 };
 
-const ui_reducer = (state = initialState, action) => {
+const uiReducer = (state = initialState, action) => {
   switch (action.type) {
     case SELECT_ITEM:
       return {
@@ -38,4 +38,4 @@ const ui_reducer = (state = initialState, action) => {
   }
 };
 
-export default ui_reducer;
+export default uiReducer;

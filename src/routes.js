@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import Main from './screen/main';
-import Welcome from './screen/welcome';
-import CreateItem from './screen/createitem';
-import ExampleScreen from './screen/example';
+import Main from './screen/main/main.index';
+import Welcome from './screen/welcome/welcome.index';
+import CreateItem from './screen/create_item/createitem.index';
+import ExampleScreen from './screen/example/example.index';
 
 export default function Routes() {
   return (

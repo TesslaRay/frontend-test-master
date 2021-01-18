@@ -60,10 +60,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const CounterCell = ({item}) => {
+const CounterCell = ({item}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const ui_reducer = useSelector((state) => state.ui_reducer);
+  const uiReducer = useSelector((state) => state.uiReducer);
   function handleDecrement() {
     dispatch(decrementValue(item));
   }
@@ -73,8 +73,8 @@ export const CounterCell = ({item}) => {
   }
 
   let isSelected = false;
-  if (ui_reducer.itemSelected.length) {
-    isSelected = ui_reducer.itemSelected[0].title === item.title ? true : false;
+  if (uiReducer.itemSelected.length) {
+    isSelected = uiReducer.itemSelected[0].title === item.title ? true : false;
   }
 
   return (
@@ -105,3 +105,5 @@ export const CounterCell = ({item}) => {
     </Container>
   );
 };
+
+export default CounterCell;

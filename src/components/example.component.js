@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const ExampleList = (items) => {
+const ExampleList = (items) => {
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -42,3 +42,5 @@ export const ExampleList = (items) => {
     );
   });
 };
+
+export default ExampleList;

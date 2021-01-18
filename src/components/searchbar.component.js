@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const SearchBar = () => {
+const SearchBar = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -71,3 +71,5 @@ export const SearchBar = () => {
     </div>
   );
 };
+
+export default SearchBar;

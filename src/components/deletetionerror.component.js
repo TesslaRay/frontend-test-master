@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -54,11 +54,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const DeletetionError = () => {
+const DeletetionError = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
 
   const handleClose = () => {
     setOpen(false);
@@ -93,3 +93,5 @@ export const DeletetionError = () => {
     </Dialog>
   );
 };
+
+export default DeletetionError;

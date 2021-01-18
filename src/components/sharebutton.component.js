@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
@@ -53,12 +53,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const ShareButton = () => {
+const ShareButton = () => {
   const classes = useStyles();
-  const ui_reducer = useSelector((state) => state.ui_reducer);
+  const uiReducer = useSelector((state) => state.uiReducer);
   const dispatch = useDispatch();
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClick = () => {
     setOpen(true);
@@ -84,7 +84,7 @@ export const ShareButton = () => {
 
       {/* Delete confirmation */}
       <Dialog
-        open={ui_reducer.copyIsActive}
+        open={uiReducer.copyIsActive}
         onClick={() => {
           dispatch(unactiveCopy());
         }}
@@ -103,7 +103,7 @@ export const ShareButton = () => {
             className={classes.copy}
             onClick={() => {
               navigator.clipboard.writeText(
-                `${ui_reducer.itemSelected[0].count}x ${ui_reducer.itemSelected[0].title}`,
+                `${uiReducer.itemSelected[0].count}x ${uiReducer.itemSelected[0].title}`,
               );
               handleClick();
             }}
@@ -127,3 +127,5 @@ export const ShareButton = () => {
     </div>
   );
 };
+
+export default ShareButton;

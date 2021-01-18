@@ -38,7 +38,7 @@ const initialState = {
   counts: [],
 };
 
-const count_reducer = (state = initialState, action) => {
+const countReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_COUNT_REQUEST:
       return {
@@ -101,11 +101,6 @@ const count_reducer = (state = initialState, action) => {
           element.count = action.payload[0].count;
         }
       });
-      // state.counts[0].map((objet) => {
-      //   if (objet.id === action.payload[0].id) {
-      //     objet.count = action.payload[0].count;
-      //   }
-      // });
 
       return {
         ...state,
@@ -178,4 +173,4 @@ const count_reducer = (state = initialState, action) => {
   }
 };
 
-export default count_reducer;
+export default countReducer;
